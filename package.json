@@ -1,0 +1,14 @@
+{
+  "name": "Scrim-s02a2a5",
+  "description": "https://scrimba.com/s02a2a5/head",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}
