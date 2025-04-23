@@ -436,6 +436,12 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
+@media (max-width: 768px) {
+    .header {
+      background-attachment: scroll;
+    }
+  } /* added by chatgpt */
+
 /* --------------------------------------- */
 /* ----- Work ----- */
 /* --------------------------------------- */
