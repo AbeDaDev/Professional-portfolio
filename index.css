@@ -428,6 +428,8 @@ body:not(.user-is-tabbing) a:focus {
 @media (max-width: 1024px) {
   .header {
     background-attachment: scroll;
+    height: 100%; /* or use auto */
+    min-height: 60vh; /* adjust as needed */
   }
 }
 
