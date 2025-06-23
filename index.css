@@ -425,13 +425,6 @@ body:not(.user-is-tabbing) a:focus {
     font-family: 'Jost', sans-serif;
     font-size: var(--font-size-medium);
 }
-@media (max-width: 1024px) {
-  .header {
-    background-attachment: scroll;
-    height: 100%; /* or use auto */
-    min-height: 60vh; /* adjust as needed */
-  }
-}
 
 @media(max-width: 500px) {
     .header {
