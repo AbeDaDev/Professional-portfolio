@@ -440,7 +440,36 @@ body:not(.user-is-tabbing) a:focus {
     .header {
       background-attachment: scroll;
     }
-  } /* added by chatgpt */
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 1.1rem;
+  }
+  .row {
+    max-width: 90vw;
+    padding: 0 2vw;
+  }
+  .work__boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .work__box {
+    flex: 1 1 45%;
+    max-width: 45%;
+    margin-bottom: 2rem;
+  }
+  .about__content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about__photo-container {
+    margin-top: 2rem;
+  }
+  /* Added for ipad */
+}
 
 /* --------------------------------------- */
 /* ----- Work ----- */
