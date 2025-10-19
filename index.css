@@ -624,6 +624,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .languages {
     margin: 40px 0px;
+    margin-bottom: 50px;
     padding: 0px;
     display: flex;
     align-content: center;
