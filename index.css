@@ -617,3 +617,28 @@ body:not(.user-is-tabbing) a:focus {
         padding: var(--gutter-medium) 0;
     } 
 }
+
+/* --------------------------------------- */
+/* ----- Languages ----- */
+/* --------------------------------------- */
+
+.languages {
+    margin: 40px 0px;
+    padding: 0px;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 40px;
+    list-style: none;
+    animation: fade-in 1.0s ease;
+    animation: slide-left 5s ease;
+}
+
+#languages {
+    display: flex;
+    margin: 3px;
+    padding: 0px;
+    width: 92%;
+
+}
