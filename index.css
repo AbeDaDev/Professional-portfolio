@@ -34,11 +34,10 @@
     --line-height-normal: 1.7;
     --line-height-small: 1.2;
 
-    --black: #000;
+    --black: linear-gradient(135deg, #000000 0%, #2c2c2c 50%, #000000 100%);
     --pink: #264bb9;
     --white: #f0e9f2;
     --white-1: #e5e5e6da;
-
 
     --container-max-width: 1180px;
     --container-normal-width: 800px;
@@ -51,7 +50,7 @@
     --gutter-small-1: 2.5rem;
     --gutter-small: 2rem;
     --gutter-x-small: 1rem;
-    --border-light: 1px solid rgb(36, 35, 35);
+    --border-light: 1px solid #264bb9;
 }
 
 html {
