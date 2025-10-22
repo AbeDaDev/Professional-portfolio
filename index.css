@@ -403,20 +403,20 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/emile-perron-xrVDYZRGdw4-unsplash.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    font-size: var(--font-size-normal);
+  background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)),
+              url('./images/emile-perron-xrVDYZRGdw4-unsplash.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: 50% 25%; /* pulls the visible part upward */
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* iPads ignore fixed anyway */
+  font-size: var(--font-size-normal);
 }
 
 @media (max-width: 1100px) {
   .header {
-    background-attachment: scroll;
     background-size: contain;
-    background-position: top center;
+    background-position: center top;
   }
 }
 
