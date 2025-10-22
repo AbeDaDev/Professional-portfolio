@@ -645,19 +645,20 @@ body:not(.user-is-tabbing) a:focus {
     width: 92%;
 }
 
+/* ----------------- Large screens / Desktop ----------------- */
 .languages {
   display: flex;
-  gap: 100px; /* spacing between icons */
+  gap: 100px;
   padding: 0;
   margin-bottom: 20px;
   list-style: none;
   position: relative;
-  overflow: hidden; /* hide overflowing images */
-  height: 60px;     /* container height */
+  overflow: hidden;
+  height: 60px;
 }
 
 .language-icon {
-  height: 50px;          /* fits within container */
+  height: 50px;
   width: auto;
   object-fit: contain;
   animation: scroll-left 15s linear infinite;
@@ -665,13 +666,11 @@ body:not(.user-is-tabbing) a:focus {
   animation-delay: calc(var(--i) * 1.5s);
 }
 
-/* second row scrolls in opposite direction */
 .languages:nth-of-type(2) .language-icon {
   animation: scroll-right 15s linear infinite;
   animation-delay: calc(var(--i) * 1.5s);
 }
 
-/* scrolling left (default) */
 @keyframes scroll-left {
   0% { transform: translateX(100%); opacity: 0; }
   10% { opacity: 1; }
@@ -679,7 +678,6 @@ body:not(.user-is-tabbing) a:focus {
   100% { transform: translateX(-100%); opacity: 0; }
 }
 
-/* scrolling right (reverse) */
 @keyframes scroll-right {
   0% { transform: translateX(-100%); opacity: 0; }
   10% { opacity: 1; }
@@ -687,35 +685,37 @@ body:not(.user-is-tabbing) a:focus {
   100% { transform: translateX(100%); opacity: 0; }
 }
 
-@media (max-width: 480px) {
+/* ----------------- Medium screens / Tablets ----------------- */
+@media (max-width: 1024px) and (min-width: 481px) {
   .languages {
-    height: 75px;       /* slightly taller container for bigger icons */
-    gap: 45px;           /* slightly wider spacing */
+    gap: 60px;           /* reduce spacing */
+    height: 55px;         /* slightly smaller container */
   }
 
   .language-icon {
-    height: 65px;        /* bigger icons */
-    animation: scroll-left 12s linear infinite;
-    animation-delay: calc(var(--i) * 0.5s);
+    height: 45px;         /* slightly smaller icons */
+    animation: scroll-left 18s linear infinite; /* optional: slower */
   }
 
-  /* second row scrolls right */
   .languages:nth-of-type(2) .language-icon {
-    animation: scroll-right 12s linear infinite;
-    animation-delay: calc(var(--i) * 0.5s);
+    animation: scroll-right 18s linear infinite;
+  }
+}
+
+/* ----------------- Small screens / Phones ----------------- */
+@media (max-width: 480px) {
+  .languages {
+    overflow: visible;
+    gap: 40px;
+    flex-wrap: wrap;       /* allow wrapping if needed */
+    height: auto;
+    justify-content: center;
   }
 
-  @keyframes scroll-left {
-    0% { transform: translateX(120%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateX(-120%); opacity: 0; }
-  }
-
-  @keyframes scroll-right {
-    0% { transform: translateX(-120%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateX(120%); opacity: 0; }
+  .language-icon {
+    height: 50px;          /* readable icon size */
+    animation: none;       /* disable animation */
+    opacity: 1;
+    transform: none;
   }
 }
