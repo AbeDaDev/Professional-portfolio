@@ -689,14 +689,14 @@ body:not(.user-is-tabbing) a:focus {
 
 @media (max-width: 480px) {
   .languages {
-    height: 50px;         /* slightly smaller for mobile */
-    gap: 40px;            /* reduce spacing to fit screen */
+    height: 55px;       /* slightly taller container for bigger icons */
+    gap: 45px;           /* slightly wider spacing */
   }
 
   .language-icon {
-    height: 40px;         /* scale icons down */
+    height: 45px;        /* bigger icons */
     animation: scroll-left 12s linear infinite;
-    animation-delay: calc(var(--i) * 0.5s); /* shorter delay for smaller screen */
+    animation-delay: calc(var(--i) * 0.5s);
   }
 
   /* second row scrolls right */
