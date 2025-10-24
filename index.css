@@ -413,22 +413,21 @@ body:not(.user-is-tabbing) a:focus {
   font-size: var(--font-size-normal);
 }
 
-/* ✅ Small + Medium Screens (Phones + Tablets) */
-@media (max-width: 1100px) {
+/* ✅ iPhone & smaller devices (up to 767px) */
+@media (max-width: 767px) {
   .header {
-    background-size: contain;        /* show full banner */
-    background-position: top center; /* align image neatly */
-    height: auto;                    /* remove extra space */
-    min-height: 100vh;               /* ensure it still fills screen height */
+    background-size: cover;          /* same as iPhone look */
+    background-position: center;     /* centers image properly */
+    height: 100vh;                   /* fills screen neatly */
   }
 }
 
-/* ✅ Larger screens (Desktops & Laptops) */
-@media (min-width: 1101px) {
+/* ✅ Medium devices (768px–1024px range — small tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .header {
-    background-size: cover;          /* full-bleed look */
-    background-position: 50% 25%;
-    height: 100vh;                   /* classic full banner height */
+    background-size: cover;          /* same display as iPhone */
+    background-position: center;     /* match iPhone behavior */
+    height: 100vh;                   /* full-screen view */
   }
 }
 
