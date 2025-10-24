@@ -712,10 +712,15 @@ body:not(.user-is-tabbing) a:focus {
     justify-content: center;
   }
 
+  .languages:nth-of-type(2) .language-icon {
+    animation: scroll-right 10s linear infinite;
+  }
+
   .language-icon {
-    height: 50px;          /* readable icon size */
+    height: 70px;          /* readable icon size */
     animation: none;       /* disable animation */
     opacity: 1;
     transform: none;
+    animation: scroll-left 10s linear infinite;
   }
 }
