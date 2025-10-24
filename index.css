@@ -717,10 +717,9 @@ body:not(.user-is-tabbing) a:focus {
   }
 
   .language-icon {
-    height: 70px;          /* readable icon size */
+    height: 50px;          /* readable icon size */
     animation: none;       /* disable animation */
     opacity: 1;
     transform: none;
-    animation: scroll-left 10s linear infinite;
   }
 }
