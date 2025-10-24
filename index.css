@@ -407,25 +407,28 @@ body:not(.user-is-tabbing) a:focus {
               url('./images/emile-perron-xrVDYZRGdw4-unsplash.jpg');
   height: 100vh;
   background-size: cover;
-  background-position: 50% 25%; /* shifts image up a bit */
+  background-position: 50% 25%;
   background-repeat: no-repeat;
   background-attachment: scroll;
   font-size: var(--font-size-normal);
 }
 
-/* ✅ iPad and medium screens — show full image */
-@media (min-width: 601px) and (max-width: 1100px) {
+/* ✅ Small + Medium Screens (Phones + Tablets) */
+@media (max-width: 1100px) {
   .header {
-    background-size: contain;
-    background-position: top center;
+    background-size: contain;        /* show full banner */
+    background-position: top center; /* align image neatly */
+    height: auto;                    /* remove extra space */
+    min-height: 100vh;               /* ensure it still fills screen height */
   }
 }
 
-/* ✅ iPhones — revert to original look */
-@media (max-width: 600px) {
+/* ✅ Larger screens (Desktops & Laptops) */
+@media (min-width: 1101px) {
   .header {
-    background-size: cover;
-    background-position: center;
+    background-size: cover;          /* full-bleed look */
+    background-position: 50% 25%;
+    height: 100vh;                   /* classic full banner height */
   }
 }
 
