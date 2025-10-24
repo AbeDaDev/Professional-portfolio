@@ -647,81 +647,75 @@ body:not(.user-is-tabbing) a:focus {
     width: 92%;
 }
 
-/* ----------------- Large screens / Desktop ----------------- */
 .languages {
   display: flex;
-  gap: 100px;
-  padding: 0;
-  margin-bottom: 20px;
+  gap: 80px;
   list-style: none;
-  position: relative;
   overflow: hidden;
-  height: 60px;
+  width: 100%;
+  margin: 0 auto 40px;
+  position: relative;
 }
 
+/* This wrapper creates the looping effect */
+.languages__track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  animation: scroll-carousel 20s linear infinite;
+  will-change: transform;
+}
+
+/* Icons inside the track */
 .language-icon {
-  height: 50px;
+  height: 55px;
   width: auto;
   object-fit: contain;
-  animation: scroll-left 15s linear infinite;
-  opacity: 0;
-  animation-delay: calc(var(--i) * 1.5s);
+  flex-shrink: 0;
 }
 
-.languages:nth-of-type(2) .language-icon {
-  animation: scroll-right 15s linear infinite;
-  animation-delay: calc(var(--i) * 1.5s);
+/* Reverse direction for the second roll */
+.languages:nth-of-type(2) .languages__track {
+  animation-direction: reverse;
 }
 
-@keyframes scroll-left {
-  0% { transform: translateX(100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(-100%); opacity: 0; }
+/* Smooth infinite scroll keyframes */
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-@keyframes scroll-right {
-  0% { transform: translateX(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(100%); opacity: 0; }
-}
-
-/* ----------------- Medium screens / Tablets ----------------- */
-@media (max-width: 1024px) and (min-width: 481px) {
+/* ---------------- Responsive Adjustments ---------------- */
+@media (max-width: 1024px) {
   .languages {
-    gap: 60px;           /* reduce spacing */
-    height: 55px;         /* slightly smaller container */
+    gap: 60px;
+  }
+
+  .languages__track {
+    gap: 60px;
+    animation-duration: 25s;
   }
 
   .language-icon {
-    height: 45px;         /* slightly smaller icons */
-    animation: scroll-left 10s linear infinite; /* optional: slower */
-  }
-
-  .languages:nth-of-type(2) .language-icon {
-    animation: scroll-right 10s linear infinite;
+    height: 45px;
   }
 }
 
-/* ----------------- Small screens / Phones ----------------- */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .languages {
-    overflow: visible;
     gap: 40px;
-    flex-wrap: wrap;       /* allow wrapping if needed */
-    height: auto;
-    justify-content: center;
   }
 
-  .languages:nth-of-type(2) .language-icon {
-    animation: scroll-right 10s linear infinite;
+  .languages__track {
+    gap: 40px;
+    animation-duration: 30s;
   }
 
   .language-icon {
-    height: 50px;          /* readable icon size */
-    animation: none;       /* disable animation */
-    opacity: 1;
-    transform: none;
+    height: 40px;
   }
 }
