@@ -49,15 +49,27 @@ document.querySelectorAll('.about__slider').forEach((slider) => {
   const next = slider.querySelector('[data-dir=\"next\"]');
   if (!slides.length) return;
 
-  // On small screens keep only the first slide to avoid blank/slow loads
-  if (window.innerWidth <= 700 && slides.length > 1) {
-    const [first, ...rest] = slides;
-    rest.forEach((el) => el.remove());
-    slides = [first];
-  }
-
   let current = slides.findIndex((s) => s.classList.contains('about__slide--active'));
   if (current === -1) current = 0;
+
+  // On small screens prefer a key image per slider to avoid blank loads
+  if (window.innerWidth <= 700 && slides.length > 1) {
+    const altLower = slides.map((s) => s.alt.toLowerCase());
+    let keep;
+    if (altLower.some((a) => a.includes('photography'))) {
+      keep = slides.find((s) => s.alt.toLowerCase().includes('photography'));
+    } else if (altLower.some((a) => a.includes('victor'))) {
+      keep = slides.find((s) => s.alt.toLowerCase().includes('victor'));
+    }
+    if (!keep) keep = slides[0];
+
+    slides.forEach((el) => {
+      if (el !== keep) el.remove();
+    });
+    slides = [keep];
+    slides[0].classList.add('about__slide--active');
+    current = 0;
+  }
 
   const total = slides.length;
 
