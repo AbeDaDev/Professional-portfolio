@@ -588,8 +588,8 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__image-box .about__slider {
     flex: 1;
-    height: 100%;
-    min-height: 100%;
+    height: auto;
+    min-height: 0;
 }
 
 @media(max-width: 700px) {
@@ -597,8 +597,8 @@ body:not(.user-is-tabbing) a:focus {
         width: 100%;
     }
     .work__image-box .about__slider {
-        height: 42rem;
-        min-height: 42rem;
+        height: auto;
+        min-height: 0;
     }
     .about__nav {
         width: 2.6rem;
@@ -712,8 +712,8 @@ body:not(.user-is-tabbing) a:focus {
 .about__slider {
     position: relative;
     flex: 1 1 50%;
-    min-height: 56rem;
-    height: 56rem;
+    min-height: 0;
+    height: auto;
     border-radius: var(--gutter-small);
     overflow: hidden;
     box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.12);
@@ -722,32 +722,30 @@ body:not(.user-is-tabbing) a:focus {
 .about__slides {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .about__slide {
-    position: absolute;
-    inset: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity .4s ease, filter .4s ease;
-    filter: blur(2px);
+    height: auto;
+    object-fit: contain;
+    opacity: 1;
+    filter: none;
+    transition: opacity .4s ease;
 }
 
 .about__slide--active {
     opacity: 1;
-    filter: blur(0);
 }
 
 .about__slider--static {
     height: auto;
-    min-height: 56rem;
+    min-height: 0;
 }
 
 .about__slider--static .about__slides {
-    height: 100%;
+    height: auto;
 }
 
 .about__slider--static .about__slide {
@@ -771,6 +769,11 @@ body:not(.user-is-tabbing) a:focus {
 .about__slider--static:hover .about__slide--base,
 .about__slider--static:focus-within .about__slide--base {
     opacity: 0;
+}
+
+/* Reuse swap behavior for other static sliders */
+.about__slider--swap {
+    height: 100%;
 }
 
 .about__slider--static .about__nav {
@@ -802,8 +805,8 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(max-width: 700px) {
     .about__slider {
-        min-height: 30rem;
-        height: 30rem;
+        min-height: 28rem;
+        height: 28rem;
     }
     .about__slide {
         transition: opacity .28s ease, filter .28s ease;
