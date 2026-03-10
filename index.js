@@ -44,10 +44,17 @@ window.addEventListener("scroll", () => {
 
 // Sliders (about + freelance)
 document.querySelectorAll('.about__slider').forEach((slider) => {
-  const slides = Array.from(slider.querySelectorAll('.about__slide'));
+  let slides = Array.from(slider.querySelectorAll('.about__slide'));
   const prev = slider.querySelector('[data-dir=\"prev\"]');
   const next = slider.querySelector('[data-dir=\"next\"]');
   if (!slides.length) return;
+
+  // On small screens keep only the first slide to avoid blank/slow loads
+  if (window.innerWidth <= 700 && slides.length > 1) {
+    const [first, ...rest] = slides;
+    rest.forEach((el) => el.remove());
+    slides = [first];
+  }
 
   let current = slides.findIndex((s) => s.classList.contains('about__slide--active'));
   if (current === -1) current = 0;
@@ -70,15 +77,20 @@ document.querySelectorAll('.about__slider').forEach((slider) => {
     }
   };
 
-  prev?.addEventListener('click', () => {
-    advance(-1);
-    startTimer();
-  });
-
-  next?.addEventListener('click', () => {
-    advance(1);
-    startTimer();
-  });
+  if (total > 1) {
+    prev?.addEventListener('click', () => {
+      advance(-1);
+      startTimer();
+    });
+  
+    next?.addEventListener('click', () => {
+      advance(1);
+      startTimer();
+    });
+  } else {
+    prev?.setAttribute('hidden', 'true');
+    next?.setAttribute('hidden', 'true');
+  }
 
   startTimer();
 });
