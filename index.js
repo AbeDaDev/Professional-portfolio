@@ -54,14 +54,15 @@ document.querySelectorAll('.about__slider').forEach((slider) => {
 
   // On small screens prefer a key image per slider to avoid blank loads
   if (window.innerWidth <= 700 && slides.length > 1) {
-    const altLower = slides.map((s) => s.alt.toLowerCase());
-    let keep;
-    if (altLower.some((a) => a.includes('photography'))) {
-      keep = slides.find((s) => s.alt.toLowerCase().includes('photography'));
-    } else if (altLower.some((a) => a.includes('victor'))) {
-      keep = slides.find((s) => s.alt.toLowerCase().includes('victor'));
+    let keep = slides.find((s) =>
+      (s.src && s.src.toLowerCase().includes('photography')) ||
+      (s.src && s.src.toLowerCase().includes('victorspt2'))
+    );
+    if (!keep) {
+      keep = slides.find((s) => s.alt.toLowerCase().includes('photography')) ||
+             slides.find((s) => s.alt.toLowerCase().includes('victor')) ||
+             slides[0];
     }
-    if (!keep) keep = slides[0];
 
     slides.forEach((el) => {
       if (el !== keep) el.remove();
