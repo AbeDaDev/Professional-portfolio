@@ -124,6 +124,10 @@ section:last-of-type {
     margin-top: -50px;
 }
 
+#work {
+    margin-top: -90px;
+}
+
 img {
     object-fit: contain;
     max-width: 100%;
