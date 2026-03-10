@@ -44,6 +44,8 @@ window.addEventListener("scroll", () => {
 
 // Sliders (about + freelance)
 document.querySelectorAll('.about__slider').forEach((slider) => {
+  if (slider.classList.contains('about__slider--static')) return;
+
   let slides = Array.from(slider.querySelectorAll('.about__slide'));
   const prev = slider.querySelector('[data-dir=\"prev\"]');
   const next = slider.querySelector('[data-dir=\"next\"]');

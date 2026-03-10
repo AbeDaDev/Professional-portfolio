@@ -741,6 +741,25 @@ body:not(.user-is-tabbing) a:focus {
     filter: blur(0);
 }
 
+.about__slider--static {
+    height: auto;
+    min-height: 56rem;
+}
+
+.about__slider--static .about__slides {
+    height: 100%;
+}
+
+.about__slider--static .about__slide {
+    position: relative;
+    opacity: 1;
+    filter: none;
+}
+
+.about__slider--static .about__nav {
+    display: none;
+}
+
 .about__nav {
     position: absolute;
     top: 50%;
