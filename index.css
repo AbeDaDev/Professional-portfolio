@@ -756,6 +756,23 @@ body:not(.user-is-tabbing) a:focus {
     filter: none;
 }
 
+.about__slider--static .about__slide--alt {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.about__slider--static:hover .about__slide--alt,
+.about__slider--static:focus-within .about__slide--alt {
+    opacity: 1;
+}
+
+.about__slider--static:hover .about__slide--base,
+.about__slider--static:focus-within .about__slide--base {
+    opacity: 0;
+}
+
 .about__slider--static .about__nav {
     display: none;
 }
