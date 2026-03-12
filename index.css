@@ -691,40 +691,39 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- About ----- */
 /* --------------------------------------- */
 
-.about__content {
+.about__layout {
     display: flex;
     align-items: stretch;
     gap: var(--gutter-medium);
 }
 
 @media(max-width: 900px) {
-    .about__content {
+    .about__layout {
         flex-direction: column;
     }
 
     .about__slider {
         width: 100%;
         max-width: 100%;
-        align-self: center;
+        align-self: stretch;
     }
 }
 
-@media(min-width: 901px) {
-    .about__text {
-        flex: 1 1 50%;
-    }
+.about__text {
+    flex: 1 1 50%;
 }
 
 .about__slider {
     position: relative;
-    flex: 0 0 45%;
-    max-width: 32rem;
+    flex: 1 1 50%;
+    max-width: 100%;
+    width: 100%;
     min-height: 0;
     height: auto;
     border-radius: var(--gutter-small);
     overflow: hidden;
     box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.12);
-    align-self: flex-start;
+    align-self: stretch;
 }
 
 .about__slides {
