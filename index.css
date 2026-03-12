@@ -701,6 +701,12 @@ body:not(.user-is-tabbing) a:focus {
     .about__content {
         flex-direction: column;
     }
+
+    .about__slider {
+        width: 100%;
+        max-width: 100%;
+        align-self: center;
+    }
 }
 
 @media(min-width: 901px) {
@@ -711,12 +717,14 @@ body:not(.user-is-tabbing) a:focus {
 
 .about__slider {
     position: relative;
-    flex: 1 1 50%;
+    flex: 0 0 45%;
+    max-width: 32rem;
     min-height: 0;
     height: auto;
     border-radius: var(--gutter-small);
     overflow: hidden;
     box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.12);
+    align-self: flex-start;
 }
 
 .about__slides {
@@ -778,6 +786,11 @@ body:not(.user-is-tabbing) a:focus {
 
 .about__slider--static .about__nav {
     display: none;
+}
+
+.about__resume {
+    text-align: center;
+    margin: 5rem 0;
 }
 
 .about__collage {
