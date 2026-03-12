@@ -802,32 +802,20 @@ body:not(.user-is-tabbing) a:focus {
     margin: 5rem 0;
 }
 
-.about__collage-frame {
+.about__collage-grid {
+    margin-top: var(--gutter-medium);
     width: 100%;
-    max-width: 100%;
-    margin: var(--gutter-medium) 0 0;
-    aspect-ratio: 2 / 1; /* keep width, halve height */
-}
-
-.about__collage {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: var(--gutter-small);
-    align-items: stretch;
-    justify-content: flex-start;
 }
 
 .collage__item {
     position: relative;
-    flex: 1 1 calc(33.333% - var(--gutter-small));
-    max-width: calc(33.333% - var(--gutter-small));
     aspect-ratio: 1 / 1;
-    border-radius: 1.6rem;
+    border-radius: 1.2rem;
     overflow: hidden;
-    box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.22);
-    isolation: isolate;
+    box-shadow: 0 1.2rem 2.4rem rgba(0,0,0,0.16);
 }
 
 .collage__item img {
@@ -835,45 +823,18 @@ body:not(.user-is-tabbing) a:focus {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .35s ease, filter .35s ease;
-}
-
-.collage__item::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(38, 75, 185, 0.25), rgba(0,0,0,0.25));
-    opacity: 0;
-    transition: opacity .35s ease;
-}
-
-.collage__item:hover img,
-.collage__item:focus-within img {
-    transform: scale(1.05);
-    filter: saturate(1.08);
-}
-
-.collage__item:hover::after,
-.collage__item:focus-within::after {
-    opacity: 1;
 }
 
 @media(max-width: 700px) {
-    .collage__item {
-        flex: 1 1 calc(50% - var(--gutter-small));
-        max-width: calc(50% - var(--gutter-small));
-    }
-}
-
-@media(min-width: 1100px) {
-    /* Keep project sliders comfortably tall on large screens */
-    .work__image-box .about__slider {
-        min-height: 34rem;
+    .about__collage-grid {
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     }
 }
 
 /* --------------------------------------- */
 /* ----- Contact ----- */
+
+
 /* --------------------------------------- */
 
 .contact__info {
