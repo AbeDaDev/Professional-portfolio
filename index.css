@@ -116,6 +116,7 @@ section:last-of-type {
 /* remove divider between About (with slider) and Education */
 .about {
     border-bottom: none;
+    padding-bottom: var(--gutter-large);
 }
 
 /* remove divider between Clients and My Work */
@@ -839,14 +840,6 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact__info {
     max-width: var(--container-medium-width);
-}
-
-.contact__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-    align-items: center;
-    margin-top: 1.6rem;
 }
 
 /* --------------------------------------- */
