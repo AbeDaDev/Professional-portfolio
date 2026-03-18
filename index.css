@@ -952,6 +952,16 @@ body:not(.user-is-tabbing) a:focus {
     font-size: 1.6rem;
 }
 
+.contact__qr figcaption a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.contact__qr figcaption a:hover,
+.contact__qr figcaption a:focus {
+    color: blue;
+}
+
 .contact-modal__qr-close {
     position: absolute;
     top: 0.2rem;
