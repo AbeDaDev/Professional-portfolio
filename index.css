@@ -34,7 +34,16 @@
     --line-height-normal: 1.7;
     --line-height-small: 1.2;
 
-    --black: linear-gradient(135deg, #000000 0%, #4c4545 50%, #000000 100%);
+    /* Background gradient: black-heavy with narrow blue/red accents */
+    --black: linear-gradient(
+        135deg,
+        #000000 0%,
+        #000000 20%,
+        #0b1b80 35%,
+        #000000 55%,
+        #8b0000 75%,
+        #000000 100%
+    );
     --pink: #264bb9;
     --white: #f0e9f2;
     --white-1: #e5e5e6da;
@@ -232,10 +241,6 @@ a:focus {
 body:not(.user-is-tabbing) button:focus,
 body:not(.user-is-tabbing) a:focus {
     outline: none;
-}
-
-.link:hover {
-    color: var(--pink);
 }
 
 .btn {
@@ -556,12 +561,6 @@ body:not(.user-is-tabbing) a:focus {
     gap: var(--gutter-small);
 }
 
-.work__list {
-    /* list-style-type: square; */
-    list-style-position: inside;
-    margin-bottom: var(--gutter-normal);
-}
-
 .work__code {
     display: block;
     height: 3rem;
@@ -600,10 +599,6 @@ body:not(.user-is-tabbing) a:focus {
     .work__image-box .about__slider {
         height: auto;
         min-height: 0;
-    }
-    .about__nav {
-        width: 2.6rem;
-        height: 2.6rem;
     }
 }
 
@@ -794,15 +789,6 @@ body:not(.user-is-tabbing) a:focus {
     height: 100%;
 }
 
-.about__slider--static .about__nav {
-    display: none;
-}
-
-.about__resume {
-    text-align: center;
-    margin: 5rem 0;
-}
-
 .about__collage-grid {
     margin-top: var(--gutter-medium);
     width: 100%;
@@ -933,16 +919,6 @@ body:not(.user-is-tabbing) a:focus {
     transform: translateY(-1px);
 }
 
-.contact-modal__button--secondary {
-    background: transparent;
-    color: var(--pink);
-}
-
-.contact-modal__button--secondary:hover,
-.contact-modal__button--secondary:focus {
-    background: rgba(38, 75, 185, 0.15);
-}
-
 .contact-modal__qr {
     margin-top: var(--gutter-small);
     text-align: center;
@@ -960,10 +936,6 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact-modal__qr:not([hidden]) {
     display: flex;
-}
-
-.contact-modal__back {
-    margin-top: var(--gutter-small);
 }
 
 .contact__qr img {
@@ -1047,17 +1019,6 @@ body:not(.user-is-tabbing) a:focus {
     height: 4rem;
 }
 
-.footer__github-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.footer__github-buttons iframe {
-    height: 2.5rem;
-    width: 84px;
-    transform: translateY(3px);
-}
-
 @media(max-width: 500px) {
     .footer {
         padding: var(--gutter-medium) 0;
@@ -1067,13 +1028,6 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 /* ----- Languages ----- */
 /* --------------------------------------- */
-
-#languages {
-    display: flex;
-    margin: 3px;
-    padding: 0px;
-    width: 92%;
-}
 
 .languages {
   display: flex;
