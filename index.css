@@ -991,6 +991,32 @@ body:not(.user-is-tabbing) a:focus {
     cursor: pointer;
 }
 
+.contact-modal__icon {
+    height: 2rem;
+    width: 2rem;
+    object-fit: contain;
+}
+
+.contact-modal__icon--phone {
+    filter: brightness(0) invert(1);
+}
+
+.contact-modal__icon--mail {
+    filter: brightness(0) invert(1);
+}
+
+.contact-modal__icon--linked {
+    filter: brightness(0) invert(1);
+}
+
+.contact-modal__icon--twitter {
+    filter: brightness(0) invert(1);
+}
+
+.contact-modal__icon--blinq {
+    filter: brightness(0) invert(1);
+}
+
 @media (max-width: 520px) {
     .contact-modal__dialog {
         padding: var(--gutter-small);
