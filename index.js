@@ -47,6 +47,10 @@ window.addEventListener("scroll", () => {
 // Contact modal
 const contactModal = document.getElementById("contact-modal");
 const getInTouchBtn = document.getElementById("get-in-touch");
+const blinqButton = document.getElementById("blinq-button");
+const contactActions = document.getElementById("contact-actions");
+const contactQr = document.getElementById("contact-qr");
+const qrCloseButton = document.getElementById("qr-close");
 
 const openContactModal = () => {
   if (!contactModal) return;
@@ -84,4 +88,24 @@ if (getInTouchBtn && contactModal) {
   if (closeButton) {
     closeButton.addEventListener("click", closeContactModal);
   }
+}
+
+const showBlinq = () => {
+  if (!contactActions || !contactQr) return;
+  contactActions.hidden = true;
+  contactQr.hidden = false;
+};
+
+const showActions = () => {
+  if (!contactActions || !contactQr) return;
+  contactQr.hidden = true;
+  contactActions.hidden = false;
+};
+
+if (blinqButton) {
+  blinqButton.addEventListener("click", showBlinq);
+}
+
+if (qrCloseButton) {
+  qrCloseButton.addEventListener("click", showActions);
 }

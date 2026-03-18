@@ -840,6 +840,17 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact__info {
     max-width: var(--container-medium-width);
+    display: flex;
+    gap: var(--gutter-medium);
+    align-items: flex-start;
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 700px) {
+    .contact__info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* ----- Contact Modal ----- */
@@ -930,6 +941,54 @@ body:not(.user-is-tabbing) a:focus {
 .contact-modal__button--secondary:hover,
 .contact-modal__button--secondary:focus {
     background: rgba(38, 75, 185, 0.15);
+}
+
+.contact-modal__qr {
+    margin-top: var(--gutter-small);
+    text-align: center;
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--gutter-small);
+}
+
+.contact-modal__qr[hidden] {
+    display: none;
+}
+
+.contact-modal__qr:not([hidden]) {
+    display: flex;
+}
+
+.contact-modal__back {
+    margin-top: var(--gutter-small);
+}
+
+.contact__qr img {
+    width: 22rem;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.contact__qr figcaption {
+    text-align: center;
+    margin-top: 0.6rem;
+    color: var(--white-1);
+    font-size: 1.6rem;
+}
+
+.contact-modal__qr-close {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 @media (max-width: 520px) {
