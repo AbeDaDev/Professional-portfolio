@@ -48,9 +48,6 @@ window.addEventListener("scroll", () => {
 const contactModal = document.getElementById("contact-modal");
 const getInTouchBtn = document.getElementById("get-in-touch");
 const blinqButton = document.getElementById("blinq-button");
-const contactActions = document.getElementById("contact-actions");
-const contactQr = document.getElementById("contact-qr");
-const qrCloseButton = document.getElementById("qr-close");
 
 const openContactModal = () => {
   if (!contactModal) return;
@@ -94,22 +91,12 @@ if (getInTouchBtn && contactModal) {
   }
 }
 
-const showBlinq = () => {
-  if (!contactActions || !contactQr) return;
-  contactActions.hidden = true;
-  contactQr.hidden = false;
-};
-
-const showActions = () => {
-  if (!contactActions || !contactQr) return;
-  contactQr.hidden = true;
-  contactActions.hidden = false;
-};
-
 if (blinqButton) {
-  blinqButton.addEventListener("click", showBlinq);
-}
-
-if (qrCloseButton) {
-  qrCloseButton.addEventListener("click", showActions);
+  blinqButton.addEventListener("click", () => {
+    window.open(
+      "https://blinq.me/cmfvxg4pi00gws60mw6ox44rn?bs=icl",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  });
 }
