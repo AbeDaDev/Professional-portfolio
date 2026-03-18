@@ -60,7 +60,7 @@
               <span>Abraham Perez</span>
           </h1>
               <p>A Full-Stack Software Engineer based in Victorville, CA<span class="cursor">_</span></p>
-          <a href="#contact" class="btn btn--pink">Get in touch</a>
+          <a href="#contact" class="btn btn--pink" id="get-in-touch">Get in touch</a>
         </div>
       </div>
     </header>
@@ -391,7 +391,20 @@ I’m excited to continue learning and building more AI-powered projects.
               </div>
             </div>
           </section>
-    
+
+          <div class="contact-modal" id="contact-modal" aria-hidden="true">
+            <div class="contact-modal__backdrop" data-dismiss-modal></div>
+            <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+              <button class="contact-modal__close" type="button" aria-label="Close contact options" data-dismiss-modal>&times;</button>
+              <h3 id="contact-modal-title">Quick contact</h3>
+              <p class="contact-modal__text">Choose how you'd like to reach me.</p>
+              <div class="contact-modal__actions">
+                <a class="contact-modal__button" href="tel:9096362637">Call 909-636-2637</a>
+                <a class="contact-modal__button contact-modal__button--secondary" href="mailto:AbeDevelops@gmail.com">Email AbeDevelops@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
           <!-- ***** Footer ***** -->
 
         </main>

@@ -842,6 +842,102 @@ body:not(.user-is-tabbing) a:focus {
     max-width: var(--container-medium-width);
 }
 
+/* ----- Contact Modal ----- */
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gutter-normal);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 999;
+}
+
+.contact-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-modal__backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.contact-modal__dialog {
+    position: relative;
+    width: min(420px, 100%);
+    padding: var(--gutter-normal);
+    border-radius: 1.2rem;
+    background: #0f1424;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.35);
+}
+
+.contact-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+.contact-modal__text {
+    margin: var(--gutter-small) 0 var(--gutter-normal);
+    color: var(--white-1);
+}
+
+.contact-modal__actions {
+    display: grid;
+    gap: var(--gutter-small);
+}
+
+.contact-modal__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 1.6rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--pink);
+    background: var(--pink);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.contact-modal__button:hover,
+.contact-modal__button:focus {
+    background: transparent;
+    box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+.contact-modal__button--secondary {
+    background: transparent;
+    color: var(--pink);
+}
+
+.contact-modal__button--secondary:hover,
+.contact-modal__button--secondary:focus {
+    background: rgba(38, 75, 185, 0.15);
+}
+
+@media (max-width: 520px) {
+    .contact-modal__dialog {
+        padding: var(--gutter-small);
+    }
+}
+
 /* --------------------------------------- */
 /* ----- Footer ----- */
 /* --------------------------------------- */

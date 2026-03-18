@@ -43,3 +43,45 @@ window.addEventListener("scroll", () => {
 });
 
 // Slider logic removed (static only)
+
+// Contact modal
+const contactModal = document.getElementById("contact-modal");
+const getInTouchBtn = document.getElementById("get-in-touch");
+
+const openContactModal = () => {
+  if (!contactModal) return;
+  contactModal.classList.add("is-open");
+  contactModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+};
+
+const closeContactModal = () => {
+  if (!contactModal) return;
+  contactModal.classList.remove("is-open");
+  contactModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+};
+
+if (getInTouchBtn && contactModal) {
+  getInTouchBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    openContactModal();
+  });
+
+  contactModal.addEventListener("click", (e) => {
+    if (e.target.dataset.dismissModal !== undefined) {
+      closeContactModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && contactModal.classList.contains("is-open")) {
+      closeContactModal();
+    }
+  });
+
+  const closeButton = contactModal.querySelector(".contact-modal__close");
+  if (closeButton) {
+    closeButton.addEventListener("click", closeContactModal);
+  }
+}
