@@ -5,6 +5,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/jpeg" href="/assets/Photography-YQVhdyCM.jpeg" />
+    <!-- Social sharing preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Abraham Perez | Full-Stack Software Engineer" />
+    <meta property="og:description" content="Full-stack engineer in Victorville, CA — selected projects, skills, and contact." />
+    <meta property="og:image" content="/assets/header-KWTvTQ7e.jpg" />
+    <meta property="og:image:alt" content="Hero banner of Abraham Perez portfolio" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abraham Perez | Full-Stack Software Engineer" />
+    <meta name="twitter:description" content="Full-stack engineer in Victorville, CA — selected projects, skills, and contact." />
+    <meta name="twitter:image" content="/assets/header-KWTvTQ7e.jpg" />
 
     <title>
       Abraham Perez | A Full-Stack Software Engineer based in Victorville, CA
@@ -14,7 +26,8 @@
     <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
     <meta name="keywords"
       content="Put your name, skills and some coding keywords" />
-    <link rel="stylesheet" crossorigin href="/assets/index-eXkvPMp2.css">
+    <script type="module" crossorigin src="/assets/index-BACYGuMe.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dlm9DYL_.css">
   </head>
 
   <body>
@@ -48,7 +61,7 @@
               <span>Abraham Perez</span>
           </h1>
               <p>A Full-Stack Software Engineer based in Victorville, CA<span class="cursor">_</span></p>
-          <a href="#contact" class="btn btn--pink">Lets Connect</a>
+          <button type="button" class="btn btn--pink" id="get-in-touch">Lets Connect</button>
         </div>
       </div>
     </header>
@@ -144,7 +157,8 @@
               <div class="work__text">
                 <h3>🏠 Real Estate Showcase</h3>
                 <p>
-                  Freelance site for a realtor to feature active and sold properties, highlight testimonials, and capture new buyer/seller leads through a mobile-first form. Includes a simple CMS-like JSON data flow so images, stats, and copy can be swapped without code. Built for fast loads (lazy images, minified assets) and strong credibility signals with hero highlights, badge carousel, and gallery slider.
+                  Freelance site for a realtor to feature active and sold properties, highlight testimonials, and capture new buyer/seller leads through a mobile-first form. Includes a simple CMS-like JSON data flow so images, stats, and copy can be swapped without code.
+                  Built for fast loads (lazy images, minified assets) and strong credibility signals with hero highlights, badge carousel, and gallery slider.
                 </p>
                 <div class="work__stack">
                   <img src="data:image/png;base64,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" alt="HTML" class="work__stack-icon" />
@@ -162,7 +176,7 @@
                   </a>
                 </div>
               <div class="work__links">
-                <span class="link__text">Private Client Project</span>
+                <span class="link__text link__text--static">Private Client Project</span>
               </div>
             </div>
               <div class="work__image-box">
@@ -181,8 +195,8 @@
               <div class="work__text">
                 <h3>👕 FOREVER.👚</h3>
                 <p>
-                   A MERN e‑commerce build (in progress) with product grid, variant-aware detail pages, cart/wishlist, and planned Stripe checkout. Admin view will cover inventory CRUD, order status, and promo codes. Stack: React + Tailwind UI, Express/Node API, MongoDB for catalog/orders, JWT auth, and Stripe integration for payments.
-                  
+                  A MERN e‑commerce build (in progress) with product grid, variant-aware detail pages, cart/wishlist, and planned Stripe checkout. Admin view will cover inventory CRUD, order status, and promo codes.
+                  Stack: React + Tailwind UI, Express/Node API, MongoDB for catalog/orders, JWT auth, and Stripe integration for payments.
                 </p>
                 <div class="work__stack">
                   <img src="data:image/png;base64,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" alt="HTML" class="work__stack-icon" />
@@ -215,6 +229,16 @@
 
             <!-- Project 3 -->
             
+            <div class="work__box">
+              <div class="work__text">
+                <h3>📊 Personal Dashboard</h3>
+                <p>
+                  A responsive personal productivity dashboard that pulls together tasks, notes, quick links, and at-a-glance KPIs in one view. Designed for fast daily check-ins with keyboard shortcuts, local-first storage, and dark-friendly theming.
+                  Stack: React with Zustand state, CSS modules for layout, and optional API hooks for weather/calendar stubs so external services can drop in without rewiring UI.
+                </p>
+                <div class="work__stack">
+                  <img src="data:image/png;base64,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" alt="HTML" class="work__stack-icon" />
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAB2hJREFUeJzlW1tsVEUY/v45Zy/0YltKKWlBK1DaUgExSOIF0BgxJooxhsYHSdQYK0FC8EXxASu8SFRMTNTw5oPgI4kmRvEBMBFToRRaC6XS0u72smuBXuiF7e6e8aE9y17OzOzldFvS72luZ8783/nnn3/+f5cwg5rjl4cBFCDLmPQNZPuVACPevf8FBgAs0kjwZn8lcwNiWsAs3yOAwzMnq5kDMMZGI2WzwDktGA0A2M1IySwQ4wuGAE7oM8tRW4AvmC2gMeo0y/e2ALEFQwCgXzFLEQIMvnBOgZCBy2ZZNwsOh9ZrBEMGordFFAhA8+vr4GRk62KudbhtnY+I8OLPXTDEI5BDUxfNWkTYtrraKYD8osc4gP8mgnatc/bANInwAGkUbtvz7FhkeEyvwhD67gMCglyuoUTaZHQ9hgDO5HbgfiBgPKwYwGg4phpT4STVgIGJqTSXlT0MT8kZIGK+6HqsBnC5M+Qbn/8aMDgZkg+Iu/PEEkD3tw1gTMPfvjHpGCLqiK7r0RWNc69BYiMyME8JIMbQPUk4eM4D/7him+p6W0w1diLdAy4+RNqHJrH2REsGS72Hx0pysXd9KQozmIMxhhuThE//8qB/LDn75DLCTdH12M/NOdWcaJkAYK93EoUNS3JQX7sUz5Q/AAC41tGheCIRjDH0BwiHGvvQNTypfiACQvcH2zUQRb6yHttPHMcv9QK0OuVVKbCm0I3dj5Ri+4MFSNeXJCIMhjQ0/NmL60OpCD7zvMaC0cID8QQAIJCXA7YRsKrAjffX2SP44cY+XLs9kfZaSGMJFjKBAE7wgKf9jgiW5znxztqleG1VETSJYZWBiDBk6Dhyvh/Nfrl1T24+diu+LYEAcO6NNw2poCzXiXdrMxMcAMbgwGcXfLgwMKoenCQ4UUIENlEDwLyUhgosy3Hg7ZoS1FUWZ3RjHIMDnzf50Gij4CYYse74tgQCNOIeIwX5F7t0vFlTgl1VS+DSMhP8aLMP5/rsFzwK7fENiVvACHtAmnKmIpeOt2pK8MaaYrh1yxBCSshDEAc3FgMbi9OeY985v9RIktN1Ob4tkQCny4Og3J/et2EZdlUtQY4NgtsFIsKN4bvSMXo4cDG+LUGCtrraMQDD8e3R2Llq8bwSHgCIaZgyJHEgxvjV+q0JRlAkhfRS1K/yt+cAU6qTizFL9UiPgHl4KZoIyS03EVlaVxEB0rjAwDyMCwxNqQjQBq3aLQngihC5bx5GhgYnFR+FqM+q2ZIARorQ2DzUAO8d+UfhOrtu1Z54DALgii1wyjtiW1wg2d8H/PZKJXhYfDx3jSiOQMJVq3brLcDC8y5NRoY82Nl+S35LDJPRbNVuSUDuaLgPgCrAnDWsyHfB4GIjx4jgvRMQ9gNAIc+9ZPmsVWNT/aYgCD6rvrlAdXGOtJ8zheuusXBT/SZLFbG0AdOzwgugXNT9/XMrsbk0T/j4nj+6cbrXnotNRYE8QhdQZIMYacL9IfZnFUkSVYi8LMcp7U8FK/Ic0v5xhRMERkPCLlGHKkegCpGX5coXnQpKF8nnuh2QpUMBkCbczkICWIbeYHmufRpQ6JLvcZU2Mk2szWINUKXJFN6gnRqQK7ZUAIAexQkAkKUTBEi3gPwnM6otsCLfhTIbtKCmOBdOacYf6B6RE2AwahX1CbkNOUIeR1CseqotUODU8OvLVfilZxjftPrhTTJzY2Jl4SJ8+Hg5KtwGjLDcJblya1za7yR+QdQnPj+ms0TjABaJhjTurEW+Qx0+CxocJ7uG8N0/fvjjNCfeFa4ocOPA5uWocBvgEufHBGMatv8k1HCACN37Y7NBMc9LHuQAemUvTzZd7mCEutWLcWpHNRo2L0dpTqJ9qChw49jzq3FsaxkecoWTEh4ADJJHpohpUyLhAZkjNA0PgEpR58BEEJWFyacRTSJeXVmEk11D+LbVD5r54g+7DRg8jCTljuCu4gQEkTSjIiWAg3tIskumrW++YgWJMInYUVEI7w0dBg8jlVB8NFSBEKZpN6X90k7OpEfhkYv92HO2G+1pJCoBwK0z6SVHCk3HmcEQ6n/vlI8jLr1vyzWAca8sSWRw4HTfKM72j2Jb2QPYu74U1UVCm2kPNB1nfHdx9HyPNAocgUU2KBpyAgzuoSTye1khIlXBZ0BMtwyEmJASoOuaNxxO/mWzQkSagkfWBC50ggAFAa6RQM+E4iZm+VI7iMhQcBPESegEAUnkwatPtDxBnH8M4KV0F8EIQiISfiITEbwvI8GZro/C6Wzo2r31K9m4pNO5s0VEhIAsC24i5Xy23UTQ7YE5EdxE2gl9u4gI+P0IzYHgJjL+8X/1j61PkmEcQJpEpPu/Qabro+R0HercveXLtCaYgW3/fkiXiFQJsEtwE/b+/QOpE5EsAXYLbsJ2AkwkS4SKgNkS3MSsEWCi6ofmpxixjyAgQkQA0/VRcrkPd7739Bezub5ZJ8CEiIh4ArIluImsEWAingiTgGwLbiLrBJioPtGyjYCGwM3BRzWX85N/67d8PRfr+B+tVf+8WJ8Z2AAAAABJRU5ErkJggg==" alt="CSS" class="work__stack-icon" />
                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASLSURBVHic7Zl9TJVVHMc/1wyVF8lhiIJBLSJZXvsjy8owsYKwWpDilkbDuZovZc7VqOQauGy5BDWz4WAuREtboZGxcCjTas5qZS0sRRBLM4vxKm8XvP1xducunOc+l8uV81x5vv89v/M7z/mez73PebU46nAwjDVCtQHVMgGoNqBaJgDVBlTLBKDagGqZAFQbUC0TgGoDqmUCUG1AtUwAqg2olglAtQHVMgGoNqBaJgDVBlTLBKDagGqZAFQbUC0TgGoDqjXsAYwc6gb/vgRvbeofDw+Ddav16/91EUpKoeoYnKmHhiYIDoTICIiJgpTZkD4XRgV45scy1LfDJ2sg/tH+8dgYOHVYu15nF2S9Cx+WQLfdfRuTJsDWHEhN0vfjF59ASxskpMPmHfqdB7jwDzyzFDYU6Of6BYBnV8L3vwysjsMh/jGflLnPMzyArw7DgUPe1XU4YFk2NDRq5wz5IDhQFe6Rx8eMhhUZcI8VLrdD6ddQVumaEx4G+dkQNk77/YYHUPmtPF5aAEkJV58z54sx4pVc8ZyRBnlr3HceDA6g9bIYAPsq4mbXzju1MhPqz0PyLHjsIc/aMDSAK1fk8fYO8X1bLP3L8tYMrA1DD4Jjg+ULmpY22PGpb9owNACLBaZb5WUvvgFvvgdt7YNrw9AAAOalyOM9vbD+A4iZCWvz4eK/3r3f8ACWLBDrfC01NELuFoh+EJZkQd2fA3u/4QEEBcLuzfqbm247FO2BuERY/JrnIAwPACDhXviiEEJD9HPtPWKAvCsJthbr5/sFABDz+olymJvoWX57B7y0FpbbxJSpJb8BABAdCV8WwbFSeMJDENt2ut8V+hUAp+67G8qK4Ph+WPg03KiznLPlwbkL8jK/BODUdCuU5EPtUbEM1gLRbRcHKTL5NQCnoiJgkw1+KIMJ4+U5B7+Rx68LAE5Z74SPNsrLas7K49cEwKHvtMv+0zicCA7SrvNHLaRkwu79+m0/PEMeb2mTb658CuBUHSRlwJyFsPeAPEfrlxgv2bc3t8Lqt2FqEpRXidOdEyfde9BaAIWGwAhJb30CoKMTsjeCNRkqjorYC6/Dz9WuefYe2P6x/B1xt7k+F38Od8yGvEJRDwSQWQvgs3L53N7UAs9rHK3fOlkeH/R5QFc3THscTp91jTe3woxUWJQK06aINfu+Cu1fMPEB1+fac3CpoX9ecyvMWwZT4yAtWdwFtLXD72dg1z4BQaYn58jjPrkXWG4TCw5vFRkBNVUwetTVWGcXzJwPP/46WHcQOAaqD4qFVF/55BPYkAXxsd7Xz13l2nkQz6UFcHv04LwBrH9V3nnwEYCgQKgo9g7CigxYnC4vmzwRjuzVHtn1ZLGA7WWxSNKSz2aByAixRl+6CEbeoJ8fGgLb1sH7Oe7zJoZD5S7Y/g7cMslzP/GxULETcla5z7smd4P158WAdOQ4VJ+GxmYICICwm8A6BRLvh+fSIMTN3C9Tb6+4FC2rhJ9+EwNlUws4gHFjITpK7BOeekRsoWWHpn015JejRtN1tRT2RiYA1QZUa9gD+B+ejy7SkCazDAAAAABJRU5ErkJggg==" alt="JavaScript" class="work__stack-icon" />
                   <img src="/assets/react-CjgYAAsk.png" alt="React" class="work__stack-icon" />
                   <img src="data:image/png;base64,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" alt="APIs" class="work__stack-icon" />
@@ -225,7 +249,7 @@
                     class="link__text">
                     Visit Site <span>&rarr;</span>
                   </a>
-                  <a href="https://github.com/AbeofSpade/Gemini-clone"
+                  <a href="https://github.com/AbeDaDev"
                     title="View Source Code" target="_blank">
                     <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23e5e5e6'%20viewBox='0%200%20512%20512'%3e%3clink%20id='dark-mode'%20rel='stylesheet'%20type='text/css'/%3e%3cstyle%20id='dark-mode-custom-style'%20type='text/css'/%3e%3ctitle%3eionicons-v5_logos%3c/title%3e%3cpath%20d='M256,32C132.3,32,32,134.9,32,261.7c0,101.5,64.2,187.5,153.2,217.9a17.56,17.56,0,0,0,3.8.4c8.3,0,11.5-6.1,11.5-11.4,0-5.5-.2-19.9-.3-39.1a102.4,102.4,0,0,1-22.6,2.7c-43.1,0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1,1.4-14.1h.1c22.5,2,34.3,23.8,34.3,23.8,11.2,19.6,26.2,25.1,39.6,25.1a63,63,0,0,0,25.6-6c2-14.8,7.8-24.9,14.2-30.7-49.7-5.8-102-25.5-102-113.5,0-25.1,8.7-45.6,23-61.6-2.3-5.8-10-29.2,2.2-60.8a18.64,18.64,0,0,1,5-.5c8.1,0,26.4,3.1,56.6,24.1a208.21,208.21,0,0,1,112.2,0c30.2-21,48.5-24.1,56.6-24.1a18.64,18.64,0,0,1,5,.5c12.2,31.6,4.5,55,2.2,60.8,14.3,16.1,23,36.6,23,61.6,0,88.2-52.4,107.6-102.3,113.3,8,7.1,15.2,21.1,15.2,42.5,0,30.7-.3,55.5-.3,63,0,5.4,3.1,11.5,11.4,11.5a19.35,19.35,0,0,0,4-.4C415.9,449.2,480,363.1,480,261.7,480,134.9,379.7,32,256,32Z'/%3e%3c/svg%3e" class="work__code"
                       alt="GitHub">
@@ -233,8 +257,8 @@
                 </div>
               </div>
               <div class="work__image-box">
-                <img src="/assets/gemini-clone-Dvx8GL51.png" class="work__image"
-                  alt="Project 1" />
+                <img src="/assets/dashboard-CSrlkEef.png" class="work__image"
+                  alt="Personal dashboard screenshot" />
               </div>
               
             </div>
@@ -357,13 +381,13 @@
                   Can't wait to connect with you. 😊
                 </p>
                 <figure class="contact__qr">
-                  <img src="./images/QR.JPG" alt="QR code linking to contact information" loading="lazy">
+                  <img src="/assets/QR-BXynyoAf.JPG" alt="QR code linking to contact information" loading="lazy" />
                   <figcaption>Connect with me on Blinq</figcaption>
                 </figure>
               </div>
             </div>
           </section>
-    
+
           <div class="contact-modal" id="contact-modal" aria-hidden="true">
             <div class="contact-modal__backdrop" data-dismiss-modal></div>
             <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
@@ -372,38 +396,38 @@
               <p class="contact-modal__text">Choose how you'd like to reach me.</p>
               <div class="contact-modal__actions" id="contact-actions">
                 <a class="contact-modal__button" href="tel:9096362637">
-                  <img class="contact-modal__icon contact-modal__icon--phone" src="./images/phone-call.png" alt="Phone icon">
+                  <img class="contact-modal__icon contact-modal__icon--phone" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7wAAAO8B1JFQ0AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANpSURBVFiFrdddiFVVFMDx35mpRqeZatIiJ5W+aPKhwgp6yJcSJIisMErqIcEg8iWC6qGgJIqSIqPotRzsaxSsHnwJ+hKSsh4SSgsTy74kmHJSaypr93DWZbZnzr1z77UNB85dX/t/1l5773WLlJLjGUVRDGEnDmAMm1NK+9sOkFKa9qAXJ9fpamxn412keP7FdtyDWTP6V4IN4D7sw0E8heE2Qc7FA/g0g9mJi9oCiMm3h+Mv+Dref8BIOxBZrPPwWvgfxqqWAOjHB+HwDgbRg8dC9iMu6AQi4q7GkYixEf3NAN7IJu+vBHkidN81g8BCFE10i2IpEjbW6K3K1msaYQ3EworuxtDtx9NY3KRQGxB3VAHeDsXNM6TzybDbVpEPYwv+yHbBOpxQk4kjURMjOcABTKBnBoAe7IpJzqrRD2Alvgmbj3B2xebO0H2GvgbAnhCeOgNAX6Q54fQWdkORkQZENRNjoVvTANgRgiUtgp6IzWE31uYOeDPs11XkIyF/vwGwIQR3t/jyt7JCbZmpzG8Ovo+aWFzR7cQ/mNeDrcpxmfrxPJaH09KU0kQTu2NGSmkcD6LA7RX1JmVNraA8dCZwSM3amiq8adurjSycgkll7RSZ/MKIua0heDwEj9YEWR26rZ0ChP8r4V89P17H7saPuco9elBljSOFH0aQW7oAOAnLa+QFBnPBMzHJwzXGF+Nv/KyLO6ElYDbJcGRhEpfUQDwUgPtUDpj/BaCy3l9gdg3Es6HfhbkzpH4BFnQEEI6bYpIXmqzbSxnkohqb+aau9oT3MK8TgNPwbTjfUKPvzSAO47ZMd46pu+Bz7I73PZjfFkAEWoKj+B3LmtjcFfWSMIqrssnXR7Z68WIriFZruDIqfxLXNbG5HHuzdCesr9j0tIKYaQ+vwF/x3NTEZhbuxye4t4lNFWJOWwDhfD3+jGzc2vV2KyE2BMTLbQOE87XKjucoHhHNRBcQAxjHb+Ju6MR5qbJdT/gSV3cBMBzZ/KmjDGQBzlS2142CG8UZbfoORZ0krO0KIAt2Db6KYONYo0lHHfaD+Djst8jatK4AImgf1mZnwa/Ko3qZrK/ApcomNCk7q2N7xG4BsgnOx3PKpiY/D/YqO+58uaYVbxFBjnsURTGg/JNyJa6ILz8UXz+aUnq1zu8/yKN+8efnAYgAAAAASUVORK5CYII=" alt="Phone icon" />
                   Call 909-636-2637
                 </a>
                 <a class="contact-modal__button" href="mailto:AbeDevelops@gmail.com">
-                  <img class="contact-modal__icon contact-modal__icon--mail" src="./images/email.png" alt="Email icon">
+                  <img class="contact-modal__icon contact-modal__icon--mail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABLlAAAS5QFgBmHFAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABGFJREFUWIXtlV1sFFUcxc+5M/sBBWpVMCJGDSDQ3a5hp6UgH6K724QQEh9AYzBEE5X4oEQTogkPVjBEjIDwQDAGjEYSk+pLG4TQLSnVBrC7pXS3RQJEE9EEfLB8dNvdmbl/H0rj7qZdWkR96S+5D3Pn/P/n3I/JABNM8D/DOy2ssurma7jbAYDCLenO+Ln/JEAoVDfD9eh6AK8COHVrejGAzwxb1Xd3H7v6rwQIBNZ56e97XSDvA7gq4JbeZPM3ACQQrlsD6l0AHiTx8VRP/46TJ08O3K0ArLRiawnZAaAc4EfZa+YnFy8eyeaLLMvyDErFyyC2AbAh2Fo5u+JAQ0ODe8cBqhZGlmiDOyGwBNzvde33urpa+0rWVK2u0N7sOwA2AbwkdDf3Jo4fGVeA+Ysij5suPxBgLcBvIeIn4C9lXIwQ/SK8Qcp6ClpIvJ1KxlPFOjP/wbIszyDv2Q2XGwU4BerFfilLD3KgH8AhAS6PxZzALADrJ9FfltOZfdrgThGcAHAfACnS/s3Qp6XPAfJST7Lli6FQayYPYqBfRFb0drZ8DwDBcHQBoSYXrBg6M/wpVoYjy0m2+TGpLJlsygBgKFQ3XanczK6u1q78OlWQxszdBOBC1POh6qfnjbS6UO3KWUKkNHUifwiRmrcwNnOkmvmLInNdj3xlG+aZ4r4FAbpPt14WogaUKa4YqUortkcpd1qxxrBVucr57s0fhq3Kz59p/j1fq7VTFqyO1hsuuyGYMTRnFHgW3IFHV6708yZemD7VeeaP695VpLs3o+0XAcAwlAKAObWrpjm2vVsxO7XADLw+b+nSt863t98QEZJETjkpCBwQr7mu3WYY5s/Fu1OQZsp18zEINl+5ph7q6TzW5MfkAKl3AhDtyr6AFV2WrxfI/RB5IH8uUBOpUeReAAJKg+MfWNCTiH9JqoLLN2KAYpLJpkw60bKdKvcIgCSANp9jHxLRWyFsBLBMiCUQNvYkm18xM/6HoXkaVBccW83uScTfON/efqOUh1nq5TDpjrZfAWwIVkcPisgepXhBixiK3Cba6BO6nweqo8uzfZ43/eXZuenk8Utj6TvmAMMYtr5gmypDQVaRm9OJ5v0AUFUTO6O1fO0rty3H9a4dT8+SR5BPVU3sKcdUCQIeV5tV6eSQOQCkOppPmI6uBpEzDKcjaMXq7mYABq3YJq0lDqIRgxVP/tR19Jdi0dmzx3+bPsVZAeCAQL4LVkfrgfrb9i95BHNqV03z2fZBgawmsTGdiB8spW9tbXUAvFsZjqQAfhqwfrBUbvWGVOrwn6PVjJowGI4u8Dn2KRBPUKT2dub59Ha2HKKgBsBs7c3+GAxHQuMLoPisEB0ALqmcb1G6s6V7rObDpDvj5xz/QC0EZ4U8bRjquZF0BUcgIgQJCncJpRGCo9qTXRcIR8frP8QAIJBmAIZofkje8hgtgMfnydi2mwHkGsEQiFG3bqzw1g9XgCsAy73w9v/TnhNMcFf5C2qF35TQ+9KmAAAAAElFTkSuQmCC" alt="Email icon" />
                   Email AbeDevelops@gmail.com
                 </a>
                 <a class="contact-modal__button" href="https://www.linkedin.com/in/abraham-perez-aa7a3b9b/" target="_blank" rel="noreferrer">
-                  <img class="contact-modal__icon contact-modal__icon--linked" src="./images/linkedin.svg" alt="LinkedIn logo">
+                  <img class="contact-modal__icon contact-modal__icon--linked" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23e5e5e6'%20viewBox='0%200%20512%20512'%3e%3cpath%20d='M444.17,32H70.28C49.85,32,32,46.7,32,66.89V441.61C32,461.91,49.85,480,70.28,480H444.06C464.6,480,480,461.79,480,441.61V66.89C480.12,46.7,464.6,32,444.17,32ZM170.87,405.43H106.69V205.88h64.18ZM141,175.54h-.46c-20.54,0-33.84-15.29-33.84-34.43,0-19.49,13.65-34.42,34.65-34.42s33.85,14.82,34.31,34.42C175.65,160.25,162.35,175.54,141,175.54ZM405.43,405.43H341.25V296.32c0-26.14-9.34-44-32.56-44-17.74,0-28.24,12-32.91,23.69-1.75,4.2-2.22,9.92-2.22,15.76V405.43H209.38V205.88h64.18v27.77c9.34-13.3,23.93-32.44,57.88-32.44,42.13,0,74,27.77,74,87.64Z'/%3e%3c/svg%3e" alt="LinkedIn logo" />
                   LinkedIn
                 </a>
                 <a class="contact-modal__button" href="https://github.com/AbeDaDev" target="_blank" rel="noreferrer">
-                  <img class="contact-modal__icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
+                  <img class="contact-modal__icon" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo" />
                   GitHub
                 </a>
                 <a class="contact-modal__button" href="https://x.com/Abe_of_Spade" target="_blank" rel="noreferrer">
-                  <img class="contact-modal__icon contact-modal__icon--twitter" src="./images/twitter.svg" alt="X logo">
+                  <img class="contact-modal__icon contact-modal__icon--twitter" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20fill='%23e5e5e6'%20viewBox='0%200%20512%20512'%3e%3clink%20id='dark-mode'%20rel='stylesheet'%20type='text/css'/%3e%3cstyle%20id='dark-mode-custom-style'%20type='text/css'/%3e%3ctitle%3eionicons-v5_logos%3c/title%3e%3cpath%20d='M496,109.5a201.8,201.8,0,0,1-56.55,15.3,97.51,97.51,0,0,0,43.33-53.6,197.74,197.74,0,0,1-62.56,23.5A99.14,99.14,0,0,0,348.31,64c-54.42,0-98.46,43.4-98.46,96.9a93.21,93.21,0,0,0,2.54,22.1,280.7,280.7,0,0,1-203-101.3A95.69,95.69,0,0,0,36,130.4C36,164,53.53,193.7,80,211.1A97.5,97.5,0,0,1,35.22,199v1.2c0,47,34,86.1,79,95a100.76,100.76,0,0,1-25.94,3.4,94.38,94.38,0,0,1-18.51-1.8c12.51,38.5,48.92,66.5,92.05,67.3A199.59,199.59,0,0,1,39.5,405.6,203,203,0,0,1,16,404.2,278.68,278.68,0,0,0,166.74,448c181.36,0,280.44-147.7,280.44-275.8,0-4.2-.11-8.4-.31-12.5A198.48,198.48,0,0,0,496,109.5Z'/%3e%3c/svg%3e" alt="X logo" />
                   Twitter / X
                 </a>
                 <button class="contact-modal__button" type="button" id="blinq-button">
-                  <img class="contact-modal__icon contact-modal__icon--blinq" src="./images/business-cards.png" alt="Blinq business card">
+                  <img class="contact-modal__icon contact-modal__icon--blinq" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJlSURBVFiFxdZNiI1hFAfw38xcRWZiZKcJuxmRhQ2TRgk1STbGyIoIK7ESQ2kQCxZiZYXl+MhCvlmTjySDUrIxJTUbSjOGsTjv5brzzuu6c9/xr7f7Pvc57/mf5zzn/J+H/4yGHHwuwCGsx0cM5MCRimacxjf04xGG0JE3cQN24pNY8XbUow7X8ApT8iLvwHMMi9XPKJufj6/YXWviObiIH7iHhRm2JzCI2bUgnoZ9+Iy36KrgmyZRiGcmSr4O7/AFhzH1H77dhhEsqoa4FbdEuvvQUoWPejwW21UxStvqCdqrIC5Fu1jE2tI/61IMC6KtejELN/wuuImiN+HcK3RisNxgJV5gdBKeQSwvEs/D5ZLJq2iswYrHQ6MQqWewRlT2G3SKVHfnSF7EJowURKHdxGZRcHVqs99/w3c01GMubifkk4560Zu7kvcsHBCKNoD9tQyiTax+azIeNVZiu4WS9eBg8r5xgrxdGC3gNc7hOK6MY7wa93EsGa8QxduXjFuwtELiYaGsCNEhbjDd4qBJwztxFrSKIl2MByXzO0RmKg0gVVX3iLM7bQsahXIVdeKhietEV+LrFwp4OU4Axfn25CmkzFcVQKmjEbEF18sMl2ALVomWhfeiJs7jaZl9u7iwjIc/aiANxQzU4UIy7sdJcUjtxKnkv9EkiFK8kX0GDCWLGrMF5QEsS943ZARbdFJpB4z5NmsvZya/q0UHTMuwba4iAGSr310cTZxnkR/FnWoDyMrAiNCHXJGWgQEhOHmjDR/SMnAWR0Q7fc6JvEnUVk/anZA4aDoxPacAvog7yKWc/FeOn2WBqANYaY2gAAAAAElFTkSuQmCC" alt="Blinq business card" />
                   Blinq
                 </button>
               </div>
               <figure class="contact__qr contact-modal__qr" id="contact-qr" hidden>
                 <button class="contact-modal__qr-close" type="button" id="qr-close" aria-label="Back to contact options">×</button>
-                <img src="./images/QR.JPG" alt="QR code linking to contact information" loading="lazy">
+                <img src="/assets/QR-BXynyoAf.JPG" alt="QR code linking to contact information" loading="lazy" />
                 <figcaption>Connect with me on Blinq</figcaption>
               </figure>
             </div>
           </div>
-    
+
           <!-- ***** Footer ***** -->
 
         </main>
@@ -445,7 +469,6 @@
             <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3e%3ctitle%3eionicons-v5-a%3c/title%3e%3cpolyline%20points='112%20244%20256%20100%20400%20244'%20style='fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:24px'/%3e%3cline%20x1='256'%20y1='120'%20x2='256'%20y2='412'%20style='fill:none;stroke:%23fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:24px'/%3e%3c/svg%3e" alt="Back to Top"
               class="back-to-top__image" />
           </a>
-          <script src="./index.js"></script>
         </body>
 
       </html>

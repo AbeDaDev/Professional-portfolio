@@ -66,11 +66,15 @@ const closeContactModal = () => {
   document.body.style.overflow = "";
 };
 
+const openTouchSafe = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  openContactModal();
+};
+
 if (getInTouchBtn && contactModal) {
-  getInTouchBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    openContactModal();
-  });
+  getInTouchBtn.addEventListener("click", openTouchSafe, { passive: false });
+  getInTouchBtn.addEventListener("touchend", openTouchSafe, { passive: false });
 
   contactModal.addEventListener("click", (e) => {
     if (e.target.dataset.dismissModal !== undefined) {
