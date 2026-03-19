@@ -248,7 +248,7 @@
                     class="link__text">
                     Visit Site <span>&rarr;</span>
                   </a>
-                  <a href="https://github.com/AbeDaDev"
+                  <a href="https://github.com/AbeDaDev/Personal-dashboard"
                     title="View Source Code" target="_blank">
                     <img src="./images/github.svg" class="work__code"
                       alt="GitHub">
@@ -353,12 +353,40 @@
         <div class="row">
           <h2>Education | Certificates</h2>
           <div class="client__logos">
-            <img src="./codeacademy.png" class="client__logo" alt="Codecademy certificate" />
-            <img src="./scrimba.png" class="client__logo" alt="Scrimba certificate" />
+            <button type="button" class="client__logo-button" id="codecademy-trigger" aria-label="View Codecademy full-stack certificate">
+              <img src="./codeacademy.png" class="client__logo" alt="Codecademy certificate" />
+            </button>
+
+            <button type="button" class="client__logo-button" id="scrimba-trigger" aria-label="View Scrimba AI Engineer certificate">
+              <img src="./scrimba.png" class="client__logo" alt="Scrimba certificate" />
+            </button>
+
             <img src="./boot.png" class="client__logo" alt="Bootcamp certificate" />
           </div>
         </div>
       </section>
+
+      <div class="certificate-modal" id="codecademy-modal" aria-hidden="true">
+        <div class="certificate-modal__backdrop" data-dismiss-modal></div>
+        <div class="certificate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="certificate-modal-title">
+          <button class="certificate-modal__close" type="button" aria-label="Close certificate viewer" data-dismiss-modal>&times;</button>
+          <h3 id="certificate-modal-title">Codecademy Full-Stack Developer Certificate</h3>
+          <object data="./Full-Stack Engineer Codecademy.pdf" type="application/pdf" class="certificate-modal__frame">
+            <p>View the certificate <a href="./Full-Stack Engineer Codecademy.pdf" target="_blank" rel="noreferrer">by downloading the PDF</a>.</p>
+          </object>
+        </div>
+      </div>
+
+      <div class="certificate-modal" id="scrimba-modal" aria-hidden="true">
+        <div class="certificate-modal__backdrop" data-dismiss-modal></div>
+        <div class="certificate-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="scrimba-modal-title">
+          <button class="certificate-modal__close" type="button" aria-label="Close certificate viewer" data-dismiss-modal>&times;</button>
+          <h3 id="scrimba-modal-title">Scrimba AI Engineer Certificate</h3>
+          <object data="./The AI Engineer Path_ Learn to Build ge...nd advance your web development skills.pdf" type="application/pdf" class="certificate-modal__frame">
+            <p>View the certificate <a href="./The AI Engineer Path_ Learn to Build ge...nd advance your web development skills.pdf" target="_blank" rel="noreferrer">by downloading the PDF</a>.</p>
+          </object>
+        </div>
+      </div>
 
           <!-- ***** Contact ***** -->
 

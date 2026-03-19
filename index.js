@@ -48,19 +48,31 @@ window.addEventListener("scroll", () => {
 const contactModal = document.getElementById("contact-modal");
 const getInTouchBtn = document.getElementById("get-in-touch");
 const blinqButton = document.getElementById("blinq-button");
+const certificateModal = document.getElementById("codecademy-modal");
+const codecademyTrigger = document.getElementById("codecademy-trigger");
+const scrimbaModal = document.getElementById("scrimba-modal");
+const scrimbaTrigger = document.getElementById("scrimba-trigger");
+
+const updateBodyScroll = () => {
+  const contactOpen = contactModal?.classList.contains("is-open");
+  const certificateOpen = certificateModal?.classList.contains("is-open");
+  const scrimbaOpen = scrimbaModal?.classList.contains("is-open");
+  document.body.style.overflow =
+    contactOpen || certificateOpen || scrimbaOpen ? "hidden" : "";
+};
 
 const openContactModal = () => {
   if (!contactModal) return;
   contactModal.classList.add("is-open");
   contactModal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  updateBodyScroll();
 };
 
 const closeContactModal = () => {
   if (!contactModal) return;
   contactModal.classList.remove("is-open");
   contactModal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+  updateBodyScroll();
 };
 
 const openTouchSafe = (e) => {
@@ -100,3 +112,43 @@ if (blinqButton) {
     );
   });
 }
+
+// Certificate modal (Codecademy)
+const initCertificateModal = (triggerEl, modalEl) => {
+  if (!triggerEl || !modalEl) return;
+
+  const open = () => {
+    modalEl.classList.add("is-open");
+    modalEl.setAttribute("aria-hidden", "false");
+    updateBodyScroll();
+  };
+
+  const close = () => {
+    modalEl.classList.remove("is-open");
+    modalEl.setAttribute("aria-hidden", "true");
+    updateBodyScroll();
+  };
+
+  triggerEl.addEventListener("click", open);
+
+  modalEl.addEventListener("click", (e) => {
+    if (e.target.dataset.dismissModal !== undefined) {
+      close();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    const isOpen = modalEl.classList.contains("is-open");
+    if (e.key === "Escape" && isOpen) {
+      close();
+    }
+  });
+
+  const closeButton = modalEl.querySelector(".certificate-modal__close");
+  if (closeButton) {
+    closeButton.addEventListener("click", close);
+  }
+};
+
+initCertificateModal(codecademyTrigger, certificateModal);
+initCertificateModal(scrimbaTrigger, scrimbaModal);

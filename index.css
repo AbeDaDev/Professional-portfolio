@@ -665,11 +665,28 @@ body:not(.user-is-tabbing) a:focus {
     transform: translateY(0);
 }
 
+.client__logo-link--plain::after {
+    content: none;
+}
+
 .client__logo {
     height: 12rem;
     max-width: 36rem;
     width: auto;
     transition: transform .2s ease, opacity .2s ease;
+}
+
+.client__logo-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.client__logo-button:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 6px;
 }
 
 .client__logo:hover {
@@ -997,6 +1014,77 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact-modal__icon--blinq {
     filter: brightness(0) invert(1);
+}
+
+/* ----- Certificate Modal ----- */
+
+.certificate-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gutter-normal);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 999;
+}
+
+.certificate-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.certificate-modal__backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.certificate-modal__dialog {
+    position: relative;
+    width: min(920px, 96vw);
+    height: min(90vh, 100%);
+    padding: var(--gutter-small);
+    border-radius: 1.2rem;
+    background: #0f1424;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-small);
+}
+
+.certificate-modal__close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    border: none;
+    background: transparent;
+    color: var(--white);
+    font-size: 2.6rem;
+    cursor: pointer;
+}
+
+.certificate-modal h3 {
+    margin: 0.4rem 0 0;
+}
+
+.certificate-modal__frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    border-radius: 0.8rem;
+    background: #0a0f1d;
+}
+
+@media (max-width: 640px) {
+    .certificate-modal__dialog {
+        width: 100%;
+        height: min(88vh, 100%);
+    }
 }
 
 @media (max-width: 520px) {
