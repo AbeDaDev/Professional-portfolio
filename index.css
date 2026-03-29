@@ -493,6 +493,31 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
+/* Keep hero CTA anchored on small screens while the typing text animates */
+@media(max-width: 700px) {
+    .header__text {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: var(--container-medium-width);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+    }
+
+    .header__text p {
+        max-width: 90%;
+        margin: 0 auto 2.4rem;
+        transform: scale(.92);
+    }
+
+    .btn {
+        width: fit-content;
+    }
+}
+
 @media (max-width: 768px) {
     .header {
       background-attachment: scroll;
