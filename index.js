@@ -152,3 +152,43 @@ const initCertificateModal = (triggerEl, modalEl) => {
 
 initCertificateModal(codecademyTrigger, certificateModal);
 initCertificateModal(scrimbaTrigger, scrimbaModal);
+
+// Header typing effect
+const typingItems = Array.from(document.querySelectorAll("[data-typing]")).map(
+  (el) => ({
+    el,
+    text: el.dataset.typing || el.textContent.trim(),
+  })
+);
+const typingCursor = document.querySelector(".typing-cursor");
+
+if (typingItems.length && typingCursor) {
+  typingItems.forEach((item) => {
+    item.el.textContent = "";
+  });
+
+  const typeText = (item, speed = 45) =>
+    new Promise((resolve) => {
+      let i = 0;
+      const id = setInterval(() => {
+        item.el.textContent += item.text.charAt(i);
+        i += 1;
+        if (i >= item.text.length) {
+          clearInterval(id);
+          setTimeout(resolve, 200);
+        }
+      }, speed);
+    });
+
+  const runSequence = async () => {
+    typingCursor.classList.remove("is-active");
+    typingItems.forEach((item) => (item.el.textContent = ""));
+    for (const item of typingItems) {
+      await typeText(item);
+    }
+    typingCursor.classList.add("is-active");
+  };
+
+  runSequence();
+  setInterval(runSequence, 30000);
+}

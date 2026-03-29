@@ -640,6 +640,28 @@ body:not(.user-is-tabbing) a:focus {
     gap: var(--gutter-medium);
 }
 
+.client__logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 36rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.6rem;
+    cursor: pointer;
+}
+
+.client__logo-block::after {
+    content: attr(data-label);
+    font-size: 1.4rem;
+    color: var(--white);
+    border-bottom: 1px solid var(--pink);
+    margin-top: 0.4rem;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity .2s ease, transform .2s ease;
+}
+
 .client__logo-link {
     display: inline-flex;
     flex-direction: column;
@@ -657,6 +679,12 @@ body:not(.user-is-tabbing) a:focus {
     opacity: 0;
     transform: translateY(-4px);
     transition: opacity .2s ease, transform .2s ease;
+}
+
+.client__logo-block:hover::after,
+.client__logo-block:focus-within::after {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .client__logo-link:hover::after,
@@ -956,10 +984,15 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .contact__qr img {
-    width: 22rem;
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
     display: block;
     margin: 0 auto;
+}
+
+.contact__qr {
+    flex: 0 0 auto;
+    width: clamp(20rem, 18vw, 24rem);
 }
 
 .contact__qr figcaption {
@@ -1055,6 +1088,22 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     flex-direction: column;
     gap: var(--gutter-small);
+    overflow-y: auto;
+}
+
+.certificate-modal__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--gutter-small);
+    width: 100%;
+    height: calc(90vh - 10rem);
+    min-height: 60vh;
+}
+
+.certificate-modal__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
 .certificate-modal__close {
