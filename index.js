@@ -42,9 +42,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Slider logic removed (static only)
-
-// Contact modal
 const contactModal = document.getElementById("contact-modal");
 const getInTouchBtn = document.getElementById("get-in-touch");
 const blinqButton = document.getElementById("blinq-button");
