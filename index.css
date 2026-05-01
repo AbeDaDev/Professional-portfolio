@@ -442,79 +442,105 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
+  position: relative;
   background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)),
-              url('./images/emile-perron-xrVDYZRGdw4-unsplash.jpg');
+              url('./images/softwareengineer4.png');
   height: 100vh;
+  min-height: 100svh;
   background-size: cover;
-  background-position: 50% 25%;
+  background-position: 58% 24%;
   background-repeat: no-repeat;
   background-attachment: scroll;
   font-size: var(--font-size-normal);
 }
 
-/* ✅ iPhone & smaller devices (up to 767px) */
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1100px) {
   .header {
-    background-size: cover;          /* same as iPhone look */
-    background-position: center;     /* centers image properly */
-    height: 100vh;                   /* fills screen neatly */
+    background-position: 62% 24%;
   }
 }
 
-/* ✅ Medium devices (768px–1024px range — small tablets) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 767px) {
   .header {
-    background-size: cover;          /* same display as iPhone */
-    background-position: center;     /* match iPhone behavior */
-    height: 100vh;                   /* full-screen view */
+    background-position: 66% 20%;
   }
+}
+
+.header__text-box {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    min-height: calc(100vh - 10rem);
+    min-height: calc(100svh - 10rem);
+    padding-bottom: clamp(8rem, 12vh, 14rem);
 }
 
 .header__text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: min(74rem, 58vw);
 }
 
 .header__text p {
     margin: 1.5rem 0 3.5rem;
-    max-width: var(--container-medium-width);
+    max-width: min(64rem, 52vw);
     font-family: 'Jost', sans-serif;
-    font-size: var(--font-size-medium);
+    font-size: clamp(2.4rem, 2.2vw, var(--font-size-medium));
+}
+
+@media(max-width: 900px) {
+    .heading-primary {
+        font-size: clamp(5.8rem, 10vw, 8rem);
+    }
+}
+
+@media(max-width: 700px) {
+    .nav {
+        justify-content: center;
+        padding: 2.4rem 0 0;
+    }
+
+    .nav__items {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem 2.4rem;
+    }
+
+    .nav__item:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .header__text-box {
+        min-height: calc(100svh - 12rem);
+        padding-bottom: 10rem;
+    }
+
+    .header__text {
+        width: 100%;
+        max-width: min(54rem, 84vw);
+    }
+
+    .header__text p {
+        max-width: 100%;
+        margin: 1.2rem 0 2.8rem;
+        font-size: clamp(2.1rem, 4.8vw, 3.8rem);
+    }
+
+    .btn {
+        padding-inline: 3.2rem;
+    }
 }
 
 @media(max-width: 500px) {
     .header {
-        text-align: center;
+        background-position: 68% 18%;
+    }
+
+    .header__text-box {
+        padding-bottom: 8rem;
     }
 
     .header__text p {
-        transform: scale(.8);
-    }
-}
-
-/* Keep hero CTA anchored on small screens while the typing text animates */
-@media(max-width: 700px) {
-    .header__text {
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        max-width: var(--container-medium-width);
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.8rem;
-    }
-
-    .header__text p {
-        max-width: 90%;
-        margin: 0 auto 2.4rem;
-        transform: scale(.92);
-    }
-
-    .btn {
-        width: fit-content;
+        margin-bottom: 2.4rem;
     }
 }
 
@@ -522,7 +548,7 @@ body:not(.user-is-tabbing) a:focus {
     .header {
       background-attachment: scroll;
     }
-  }
+}
 
 /* --------------------------------------- */
 /* ----- Work ----- */
