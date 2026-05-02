@@ -355,23 +355,16 @@ body:not(.user-is-tabbing) a:focus {
         inset 0 0 0 1px rgba(214, 226, 255, 0.06);
     backdrop-filter: blur(10px);
     letter-spacing: 0.18em;
-    background-image:
-        linear-gradient(90deg, rgba(140, 36, 41, 0.18), rgba(140, 36, 41, 0.95), rgba(140, 36, 41, 0.18));
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: 0 3px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, background-size 0.25s ease, color 0.2s ease;
 }
 
 #get-in-touch:hover,
 #get-in-touch:focus {
-    color: var(--accent-red);
+    color: var(--white);
     border-color: rgba(91, 112, 164, 0.42);
     background: rgba(10, 14, 20, 0.8);
     box-shadow:
         0 1.8rem 3.6rem rgba(0, 0, 0, 0.34),
         inset 0 0 0 1px rgba(214, 226, 255, 0.08);
-    background-size: 100% 3px;
     transform: translateY(-2px);
 }
 
@@ -968,9 +961,7 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .about__slide {
-    position: absolute;
-    inset: 0;
-    display: block;
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -994,14 +985,15 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .about__slider--static .about__slide {
-    position: absolute;
-    inset: 0;
+    position: relative;
     height: 100%;
     opacity: 1;
     filter: none;
 }
 
 .about__slider--static .about__slide--alt {
+    position: absolute;
+    inset: 0;
     opacity: 0;
     transition: opacity .3s ease;
 }
@@ -1141,36 +1133,19 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
     gap: 0.8rem;
     padding: 1.2rem 1.6rem;
-    border-radius: 999px;
-    border: var(--panel-border);
-    background: rgba(6, 9, 14, 0.55);
+    border-radius: 0.8rem;
+    border: 1px solid var(--pink);
+    background: linear-gradient(135deg, var(--accent-blue), #1f316f);
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    font-family: var(--font-tech);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    box-shadow:
-        0 1.4rem 3.2rem rgba(0, 0, 0, 0.26),
-        inset 0 0 0 1px rgba(214, 226, 255, 0.06);
-    backdrop-filter: blur(10px);
-    background-image:
-        linear-gradient(90deg, rgba(140, 36, 41, 0.18), rgba(140, 36, 41, 0.95), rgba(140, 36, 41, 0.18));
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: 0 3px;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, background-size 0.25s ease, color 0.2s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
 }
 
 .contact-modal__button:hover,
 .contact-modal__button:focus {
-    color: var(--accent-red);
-    border-color: rgba(91, 112, 164, 0.42);
-    background: rgba(10, 14, 20, 0.8);
-    box-shadow:
-        0 1.8rem 3.6rem rgba(0, 0, 0, 0.34),
-        inset 0 0 0 1px rgba(214, 226, 255, 0.08);
-    background-size: 100% 3px;
+    background: linear-gradient(135deg, rgba(45, 79, 184, 0.14), rgba(140, 36, 41, 0.16));
+    box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
 }
 
