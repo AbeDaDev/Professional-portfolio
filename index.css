@@ -537,7 +537,7 @@ body:not(.user-is-tabbing) a:focus {
 .header {
   position: relative;
   background: linear-gradient(rgba(0,0,0, .04), rgba(0,0,0, .28)),
-              url('./images/softwareengineer4.png');
+              url('./images/softwareengineer.png');
   height: 100vh;
   min-height: 100svh;
   background-size: cover;
