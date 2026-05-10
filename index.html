@@ -89,26 +89,23 @@
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 8rem 2.5rem 5rem;
     position: relative; overflow: hidden;
-  }
-  .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 8rem 2.5rem 5rem;
-  position: relative;
-  overflow: hidden;
-
-  /* ADD THIS */
-  background-image:
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background-image:
     linear-gradient(rgba(10,10,11,0.55), rgba(10,10,11,0.75)),
     url('/images/softwareengineer.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-  .hero-grid {
+.hero-grid {
     position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(61,240,255,0.03) 1px, transparent 1px),
