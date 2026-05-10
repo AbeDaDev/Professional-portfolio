@@ -48,9 +48,9 @@
     --bg-surface: rgba(11, 15, 20, 0.92);
     --bg-surface-strong: rgba(18, 22, 30, 0.96);
     --bg-panel: rgba(10, 14, 19, 0.88);
-    --accent-blue: #2d4fb8;
-    --accent-red: #8c2429;
-    --accent-glow: rgba(45, 79, 184, 0.28);
+    --accent-blue: #5b95ff;
+    --accent-red: #7db7ff;
+    --accent-glow: rgba(91, 149, 255, 0.34);
     --pink: var(--accent-blue);
     --white: #f6f2ee;
     --white-1: rgba(224, 224, 226, 0.86);
@@ -58,7 +58,7 @@
     --shadow-strong: 0 2rem 5rem rgba(0, 0, 0, 0.38);
     --panel-border: 1px solid rgba(91, 112, 164, 0.24);
     --panel-radius: 1.8rem;
-    --line-glow: linear-gradient(90deg, rgba(140, 36, 41, 0), rgba(140, 36, 41, 0.65) 12%, rgba(45, 79, 184, 0.8) 52%, rgba(140, 36, 41, 0.55) 86%, rgba(140, 36, 41, 0));
+    --line-glow: linear-gradient(90deg, rgba(35, 93, 255, 0), rgba(79, 134, 255, 0.65) 12%, rgba(120, 165, 255, 0.8) 52%, rgba(79, 134, 255, 0.55) 86%, rgba(35, 93, 255, 0));
 
     --container-max-width: 1180px;
     --container-normal-width: 800px;
@@ -71,7 +71,7 @@
     --gutter-small-1: 2.5rem;
     --gutter-small: 2rem;
     --gutter-x-small: 1rem;
-    --border-light: 1px solid rgba(45, 79, 184, 0.34);
+    --border-light: 1px solid rgba(91, 149, 255, 0.34);
 }
 
 html {
@@ -93,8 +93,8 @@ body {
     color: var(--white-1);
     line-height: var(--line-height-normal);
     background:
-        radial-gradient(circle at top right, rgba(45, 79, 184, 0.2), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(140, 36, 41, 0.18), transparent 24%),
+        radial-gradient(circle at top right, rgba(91, 149, 255, 0.2), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(125, 183, 255, 0.18), transparent 24%),
         var(--black);
     overflow-x: hidden;
 }
@@ -231,7 +231,7 @@ h2::after {
     width: 14rem;
     background: var(--line-glow);
     margin: var(--gutter-small) 0;
-    box-shadow: 0 0 2rem rgba(45, 79, 184, 0.22);
+    box-shadow: 0 0 2rem rgba(91, 149, 255, 0.22);
 }
 
 h3 {
@@ -303,7 +303,7 @@ body:not(.user-is-tabbing) a:focus {
     font-family: var(--font-tech);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    box-shadow: 0 0 0 1px rgba(45, 79, 184, 0.08);
+    box-shadow: 0 0 0 1px rgba(91, 149, 255, 0.08);
 }
 
 .btn:focus {
@@ -327,11 +327,11 @@ body:not(.user-is-tabbing) a:focus {
 .btn:hover::after,
 .btn:focus::after {
     right: 0;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
+    background: linear-gradient(135deg, #79bbff, var(--accent-blue), #bfe0ff);
 }
 
 .btn--pink {
-    background: linear-gradient(135deg, var(--accent-blue), #1e3276);
+    background: linear-gradient(135deg, #79bbff, var(--accent-blue), #bfe0ff);
     transition: all 0.2s;
     color: var(--white);
     box-shadow: 0 1.2rem 2.8rem rgba(10, 16, 32, 0.42);
@@ -343,7 +343,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .btn--pink:hover,
 .btn--pink:focus {
-    background: linear-gradient(135deg, rgba(45, 79, 184, 0.18), rgba(140, 36, 41, 0.18));
+    background: linear-gradient(135deg, rgba(91, 149, 255, 0.18), rgba(125, 183, 255, 0.18));
 }
 
 #get-in-touch {
@@ -400,7 +400,7 @@ body:not(.user-is-tabbing) a:focus {
 .link__text:hover::after,
 .link__text:focus:after {
     right: 0;
-    background: linear-gradient(135deg, rgba(45, 79, 184, 0.82), rgba(140, 36, 41, 0.72));
+    background: linear-gradient(135deg, rgba(91, 149, 255, 0.82), rgba(125, 183, 255, 0.72));
 }
 
 .link__text span {
@@ -412,7 +412,7 @@ body:not(.user-is-tabbing) a:focus {
     pointer-events: none;
     cursor: default;
     color: var(--white);
-    border-color: var(--accent-red);
+    border-color: var(--accent-blue);
     text-transform: uppercase;
 }
 
@@ -427,7 +427,7 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
     height: 5.5rem;
     width: 5.5rem;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
+    background: linear-gradient(135deg, #79bbff, var(--accent-blue), #bfe0ff);
     box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.35);
     border-radius: 50%;
     z-index: 10;
@@ -520,14 +520,14 @@ body:not(.user-is-tabbing) a:focus {
 }
 
 .nav__link:hover {
-    color: var(--accent-red);
+    color: var(--accent-blue);
 }
 
 .nav__link:hover::after {
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, rgba(140, 36, 41, 0.2), rgba(140, 36, 41, 0.92), rgba(140, 36, 41, 0.2));
-    box-shadow: 0 0 1.6rem rgba(140, 36, 41, 0.28);
+    background: linear-gradient(90deg, rgba(79, 134, 255, 0.2), rgba(79, 134, 255, 0.92), rgba(79, 134, 255, 0.2));
+    box-shadow: 0 0 1.6rem rgba(79, 134, 255, 0.28);
 }
 
 /* --------------------------------------- */
@@ -698,7 +698,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__stack-icon:hover {
     transform: translateY(-3px);
-    filter: drop-shadow(0 1rem 1.6rem rgba(45, 79, 184, 0.18));
+    filter: drop-shadow(0 1rem 1.6rem rgba(91, 149, 255, 0.18));
 }
 
 .work__text {
@@ -813,7 +813,7 @@ body:not(.user-is-tabbing) a:focus {
     color: var(--white-1);
     padding-bottom: 0.3rem;
     margin-top: 0.4rem;
-    background-image: linear-gradient(90deg, rgba(140, 36, 41, 0.2), rgba(140, 36, 41, 0.92), rgba(140, 36, 41, 0.2));
+    background-image: linear-gradient(90deg, rgba(91, 149, 255, 0.2), rgba(91, 149, 255, 0.92), rgba(167, 211, 255, 0.2));
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 0 2px;
@@ -837,7 +837,7 @@ body:not(.user-is-tabbing) a:focus {
     color: var(--white-1);
     padding-bottom: 0.3rem;
     margin-top: 0.4rem;
-    background-image: linear-gradient(90deg, rgba(140, 36, 41, 0.2), rgba(140, 36, 41, 0.92), rgba(140, 36, 41, 0.2));
+    background-image: linear-gradient(90deg, rgba(91, 149, 255, 0.2), rgba(91, 149, 255, 0.92), rgba(167, 211, 255, 0.2));
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 0 2px;
@@ -850,7 +850,7 @@ body:not(.user-is-tabbing) a:focus {
 .client__logo-block:focus-within::after {
     opacity: 1;
     transform: translateY(0);
-    color: var(--accent-red);
+    color: var(--accent-blue);
     background-size: 100% 2px;
 }
 
@@ -858,7 +858,7 @@ body:not(.user-is-tabbing) a:focus {
 .client__logo-link:focus-visible::after {
     opacity: 1;
     transform: translateY(0);
-    color: var(--accent-red);
+    color: var(--accent-blue);
     background-size: 100% 2px;
 }
 
@@ -889,7 +889,7 @@ body:not(.user-is-tabbing) a:focus {
 .client__logo:hover {
     opacity: 1;
     transform: translateY(-4px);
-    filter: drop-shadow(0 1rem 2rem rgba(45, 79, 184, 0.16));
+    filter: drop-shadow(0 1rem 2rem rgba(91, 149, 255, 0.16));
 }
 
 @media(max-width: 700px) {
@@ -934,7 +934,7 @@ body:not(.user-is-tabbing) a:focus {
     aspect-ratio: 4 / 5;
     border-radius: var(--gutter-small);
     overflow: hidden;
-    border: 1px solid rgba(45, 79, 184, 0.16);
+    border: 1px solid rgba(91, 149, 255, 0.16);
     box-shadow: var(--shadow-strong);
 }
 
@@ -1026,7 +1026,7 @@ body:not(.user-is-tabbing) a:focus {
     aspect-ratio: 1 / 1;
     border-radius: 1.2rem;
     overflow: hidden;
-    border: 1px solid rgba(140, 36, 41, 0.18);
+    border: 1px solid rgba(125, 183, 255, 0.18);
     box-shadow: 0 1.6rem 3.2rem rgba(0, 0, 0, 0.28);
 }
 
@@ -1102,7 +1102,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: var(--gutter-normal);
     border-radius: 1.2rem;
     background: linear-gradient(180deg, rgba(10, 14, 19, 0.98), rgba(16, 22, 32, 0.98));
-    border: 1px solid rgba(45, 79, 184, 0.24);
+    border: 1px solid rgba(91, 149, 255, 0.24);
     box-shadow: 0 2.8rem 6rem rgba(0, 0, 0, 0.45);
 }
 
@@ -1135,7 +1135,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1.2rem 1.6rem;
     border-radius: 0.8rem;
     border: 1px solid var(--pink);
-    background: linear-gradient(135deg, var(--accent-blue), #1f316f);
+    background: linear-gradient(135deg, #79bbff, var(--accent-blue), #bfe0ff);
     color: var(--white);
     text-decoration: none;
     font-weight: 600;
@@ -1144,7 +1144,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact-modal__button:hover,
 .contact-modal__button:focus {
-    background: linear-gradient(135deg, rgba(45, 79, 184, 0.14), rgba(140, 36, 41, 0.16));
+    background: linear-gradient(135deg, rgba(91, 149, 255, 0.14), rgba(125, 183, 255, 0.16));
     box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.3);
     transform: translateY(-1px);
 }
@@ -1268,7 +1268,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: var(--gutter-small);
     border-radius: 1.2rem;
     background: linear-gradient(180deg, rgba(9, 13, 19, 0.98), rgba(17, 22, 31, 0.98));
-    border: 1px solid rgba(45, 79, 184, 0.24);
+    border: 1px solid rgba(91, 149, 255, 0.24);
     box-shadow: 0 2.8rem 6rem rgba(0, 0, 0, 0.45);
     display: flex;
     flex-direction: column;
@@ -1335,7 +1335,7 @@ body:not(.user-is-tabbing) a:focus {
     text-align: center;
     padding: var(--gutter-medium) 0 var(--gutter-normal);
     background: linear-gradient(180deg, rgba(4, 5, 8, 0.8), rgba(7, 9, 13, 0.98));
-    border-top: 1px solid rgba(140, 36, 41, 0.24);
+    border-top: 1px solid rgba(125, 183, 255, 0.24);
 }
 
 .footer__social-links {
@@ -1357,7 +1357,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .footer__social-image:hover {
     transform: translateY(-3px);
-    filter: drop-shadow(0 1rem 2rem rgba(45, 79, 184, 0.22));
+    filter: drop-shadow(0 1rem 2rem rgba(91, 149, 255, 0.22));
 }
 
 @media(max-width: 500px) {
@@ -1379,8 +1379,8 @@ body:not(.user-is-tabbing) a:focus {
   margin: 40px auto 10px;
   position: relative;
   padding: 2rem 0;
-  border-top: 1px solid rgba(45, 79, 184, 0.18);
-  border-bottom: 1px solid rgba(140, 36, 41, 0.18);
+  border-top: 1px solid rgba(91, 149, 255, 0.18);
+  border-bottom: 1px solid rgba(125, 183, 255, 0.18);
   background: linear-gradient(90deg, rgba(8, 11, 16, 0), rgba(8, 11, 16, 0.8) 12%, rgba(8, 11, 16, 0.8) 88%, rgba(8, 11, 16, 0));
 }
 
