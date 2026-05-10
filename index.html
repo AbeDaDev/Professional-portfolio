@@ -194,20 +194,41 @@
 
   /* ── Skills ── */
   .skills-section { border-top: 1px solid var(--border); }
-  .skills-marquee-wrap { overflow: hidden; padding: 1rem 0; margin: 0 -2.5rem; }
-  .skills-marquee { display: flex; gap: 0; width: max-content; animation: marquee 24s linear infinite; }
+  .skills-marquee-wrap { overflow: hidden; padding: 1.25rem 0; margin: 0 -2.5rem; }
+  .skills-marquee { display: flex; gap: 0; width: max-content; animation: marquee 24s linear infinite; align-items: stretch; }
   .skills-marquee:hover { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .skill-chip {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.6rem 1.5rem;
+  .skill-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-width: 9rem;
+    padding: 1rem 1.25rem 0.95rem;
     border-right: 1px solid var(--border);
-    font-size: 0.9rem; font-weight: 400; color: var(--muted);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color: var(--muted);
     white-space: nowrap;
-    transition: color 0.2s;
+    transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
   }
-  .skill-chip:hover { color: var(--text); }
-  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .skill-card:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+    background: rgba(225, 9, 9, 0.03);
+  }
+  .skill-card img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0.75rem 1.4rem rgba(0, 0, 0, 0.3));
+  }
+  .skill-card span {
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
 
   /* ── Projects ── */
   .projects-section { border-top: 1px solid var(--border); }
@@ -408,33 +429,41 @@
 <!-- ── Skills Marquee ── -->
 <div class="skills-section" style="padding: 0 0;">
   <div class="skills-marquee-wrap">
-    <div class="skills-marquee" aria-hidden="true">
+    <div class="skills-marquee">
       <!-- First set -->
-      <span class="skill-chip"><span class="skill-dot"></span>React</span>
-      <span class="skill-chip"><span class="skill-dot"></span>TypeScript</span>
-      <span class="skill-chip"><span class="skill-dot"></span>JavaScript</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Tailwind CSS</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Next.js</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Node.js</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Python</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Figma</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Git</span>
-      <span class="skill-chip"><span class="skill-dot"></span>HTML & CSS</span>
-      <span class="skill-chip"><span class="skill-dot"></span>REST APIs</span>
-      <span class="skill-chip"><span class="skill-dot"></span>AI Integration</span>
+      <div class="skill-card"><img src="/Code%20Languages/react.png" alt="React" loading="lazy"><span>React</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/typescript.png" alt="TypeScript" loading="lazy"><span>TypeScript</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/js.png" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/html.png" alt="HTML" loading="lazy"><span>HTML</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/css.png" alt="CSS" loading="lazy"><span>CSS</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/tailwind.png" alt="Tailwind CSS" loading="lazy"><span>Tailwind</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/node.png" alt="Node.js" loading="lazy"><span>Node.js</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/express.png" alt="Express" loading="lazy"><span>Express</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/python.png" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/api.png" alt="REST APIs" loading="lazy"><span>REST APIs</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/figma.png" alt="Figma" loading="lazy"><span>Figma</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/git.png" alt="Git" loading="lazy"><span>Git</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/mongo.png" alt="MongoDB" loading="lazy"><span>MongoDB</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/mysql.png" alt="MySQL" loading="lazy"><span>MySQL</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/postgre.png" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/docker.png" alt="Docker" loading="lazy"><span>Docker</span></div>
       <!-- Duplicate set for seamless loop -->
-      <span class="skill-chip"><span class="skill-dot"></span>React</span>
-      <span class="skill-chip"><span class="skill-dot"></span>TypeScript</span>
-      <span class="skill-chip"><span class="skill-dot"></span>JavaScript</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Tailwind CSS</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Next.js</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Node.js</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Python</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Figma</span>
-      <span class="skill-chip"><span class="skill-dot"></span>Git</span>
-      <span class="skill-chip"><span class="skill-dot"></span>HTML & CSS</span>
-      <span class="skill-chip"><span class="skill-dot"></span>REST APIs</span>
-      <span class="skill-chip"><span class="skill-dot"></span>AI Integration</span>
+      <div class="skill-card"><img src="/Code%20Languages/react.png" alt="React" loading="lazy"><span>React</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/typescript.png" alt="TypeScript" loading="lazy"><span>TypeScript</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/js.png" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/html.png" alt="HTML" loading="lazy"><span>HTML</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/css.png" alt="CSS" loading="lazy"><span>CSS</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/tailwind.png" alt="Tailwind CSS" loading="lazy"><span>Tailwind</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/node.png" alt="Node.js" loading="lazy"><span>Node.js</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/express.png" alt="Express" loading="lazy"><span>Express</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/python.png" alt="Python" loading="lazy"><span>Python</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/api.png" alt="REST APIs" loading="lazy"><span>REST APIs</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/figma.png" alt="Figma" loading="lazy"><span>Figma</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/git.png" alt="Git" loading="lazy"><span>Git</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/mongo.png" alt="MongoDB" loading="lazy"><span>MongoDB</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/mysql.png" alt="MySQL" loading="lazy"><span>MySQL</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/postgre.png" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+      <div class="skill-card"><img src="/Code%20Languages/docker.png" alt="Docker" loading="lazy"><span>Docker</span></div>
     </div>
   </div>
 </div>
