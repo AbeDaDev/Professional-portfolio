@@ -66,11 +66,11 @@
     color: var(--text);
     text-decoration: none;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo span { color: #ff4d4d; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    text-transform: uppercase; color: #c92f2f; text-decoration: none;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text); }
@@ -91,7 +91,7 @@
     padding: 8rem 2.5rem 5rem;
     position: relative; overflow: hidden;
     background-image:
-    linear-gradient(rgba(10,10,11,0.55), rgba(10,10,11,0.75)),
+    linear-gradient(rgba(10,10,11,0.22), rgba(10,10,11,0.42)),
     url('/images/softwareengineer.png');
     background-size: cover;
     background-position: center center;
@@ -134,7 +134,7 @@
   .hero-headline em {
     font-style: normal;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(240,238,232,0.3);
+    -webkit-text-stroke: 1px #c92f2f;
   }
   .hero-headline-reveal {
     opacity: 0;
@@ -151,7 +151,7 @@
     gap: 2rem; flex-wrap: wrap;
   }
   .hero-desc {
-    font-size: 1rem; color: var(--muted); max-width: 30ch; line-height: 1.7;
+    font-size: 1rem; color: var(--text); max-width: 30ch; line-height: 1.7;
   }
   .hero-actions { display: flex; gap: 1rem; align-items: center; }
   .btn-primary {
@@ -194,7 +194,7 @@
 
   /* ── Skills ── */
   .skills-section { border-top: 1px solid var(--border); }
-  .skills-marquee-wrap { overflow: hidden; padding: 1.25rem 0; margin: 0 -2.5rem; }
+  .skills-marquee-wrap { overflow: hidden; padding: 1.25rem 0; margin: 0; }
   .skills-marquee { display: flex; gap: 0; width: max-content; animation: marquee 24s linear infinite; align-items: stretch; }
   .skills-marquee:hover { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -232,14 +232,17 @@
 
   /* ── Projects ── */
   .projects-section { border-top: 1px solid var(--border); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; margin: 0 -2.5rem; border-top: 1px solid var(--border); }
+  .projects-grid { display: flex; flex-direction: column; gap: 0; margin: 0; border-top: 1px solid var(--border); }
   .project-card {
     padding: 2.5rem;
-    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     background: var(--bg);
     transition: background 0.2s;
     text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
   }
+  .projects-grid .project-card:last-child { border-bottom: 0; }
   .project-card:hover { background: var(--surface); }
   .project-num {
     font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
@@ -267,6 +270,34 @@
     font-size: 1rem; color: var(--muted);
   }
   .project-card:hover .project-arrow { background: var(--accent); border-color: var(--accent); color: #0a0a0b; }
+  .projects-toggle {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-top: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .projects-toggle:hover { background: var(--surface); color: var(--accent); }
+  .projects-toggle.is-open { border-bottom-color: transparent; }
+  .projects-collapse {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.45s ease, opacity 0.25s ease;
+  }
+  .projects-collapse[hidden] { display: none; }
+  .projects-collapse.is-open {
+    max-height: 4000px;
+    opacity: 1;
+  }
+  .projects-collapse .project-card:last-child { border-bottom: 0; }
 
   /* ── Experience ── */
   .experience-section { border-top: 1px solid var(--border); }
@@ -403,7 +434,8 @@
   <a href="#" class="nav-logo">Abe<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#experience">Education</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's talk</a>
@@ -427,7 +459,7 @@
 </section>
 
 <!-- ── Skills Marquee ── -->
-<div class="skills-section" style="padding: 0 0;">
+<section class="skills-section">
   <div class="skills-marquee-wrap">
     <div class="skills-marquee">
       <!-- First set -->
@@ -466,16 +498,51 @@
       <div class="skill-card"><img src="/Code%20Languages/docker.png" alt="Docker" loading="lazy"><span>Docker</span></div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ── Projects ── -->
+<section class="projects-section" id="clients-projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title fade-up">CLIENTS PROJECTS</h2>
+  <div class="projects-grid">
+
+    <a href="https://vsd-estates.netlify.app" class="project-card fade-up">
+      <div class="project-num">01 / 02</div>
+      <div class="project-title">Corner Stone Realty Solutions</div>
+      <p class="project-desc">Real-time analytics dashboard for e-commerce operators with AI-generated insights and automated reporting.</p>
+      <div class="project-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">Recharts</span>
+        <span class="tag">OpenAI API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://vsdestates.netlify.app/" class="project-card fade-up">
+      <div class="project-num">02 / 02</div>
+      <div class="project-title">VSD Estates</div>
+      <p class="project-desc">Real-time analytics dashboard for modern real estate workflows with AI-generated insights and automated reporting.</p>
+      <div class="project-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">Recharts</span>
+        <span class="tag">OpenAI API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+  </div>
+</section>
 
 <!-- ── Projects ── -->
 <section class="projects-section" id="work">
   <div class="section-label">Selected Work</div>
-  <h2 class="section-title fade-up">PROJECTS</h2>
+  <h2 class="section-title fade-up">MAIN PROJECTS</h2>
   <div class="projects-grid">
 
     <a href="https://watchme-luxurywatches.netlify.app" class="project-card fade-up">
-      <div class="project-num">01 / 04</div>
+      <div class="project-num">01 / 05</div>
       <div class="project-title">Watch Me Time Pieces</div>
       <p class="project-desc">Full-stack conversational AI interface with real-time streaming, memory context, and multi-model routing. Built for scale.</p>
       <div class="project-tags">
@@ -487,21 +554,8 @@
       <div class="project-arrow">→</div>
     </a>
 
-    <a href="https://vsd-estates.netlify.app" class="project-card fade-up" style="transition-delay:0.1s;">
-      <div class="project-num">02 / 04</div>
-      <div class="project-title">VSD Estates</div>
-      <p class="project-desc">Real-time analytics dashboard for e-commerce operators with AI-generated insights and automated reporting.</p>
-      <div class="project-tags">
-        <span class="tag">Next.js</span>
-        <span class="tag">Tailwind</span>
-        <span class="tag">Recharts</span>
-        <span class="tag">OpenAI API</span>
-      </div>
-      <div class="project-arrow">→</div>
-    </a>
-
-    <a href="https://cheatvault.netlify.app" class="project-card fade-up" style="transition-delay:0.2s;">
-      <div class="project-num">03 / 04</div>
+    <a href="https://cheatvault.netlify.app" class="project-card fade-up" style="transition-delay:0.1s;">
+      <div class="project-num">02 / 05</div>
       <div class="project-title">Cheat Vault</div>
       <p class="project-desc">Headless CMS-powered portfolio system with AI content suggestions, draft management, and one-click deploys.</p>
       <div class="project-tags">
@@ -512,8 +566,53 @@
       <div class="project-arrow">→</div>
     </a>
 
-    <a href="https://abepersonaldashboard.netlify.app" class="project-card fade-up" style="transition-delay:0.3s;">
-      <div class="project-num">04 / 04</div>
+    <a href="https://foreverperiod.netlify.app/" class="project-card fade-up" style="transition-delay:0.2s;">
+      <div class="project-num">03 / 05</div>
+      <div class="project-title">FOREVER.</div>
+      <p class="project-desc">A brand-focused web experience with a refined layout, bold typography, and smooth interactive presentation.</p>
+      <div class="project-tags">
+        <span class="tag">Next.js</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">JavaScript</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://simplemoviesearch.netlify.app/" class="project-card fade-up" style="transition-delay:0.3s;">
+      <div class="project-num">04 / 05</div>
+      <div class="project-title">Movie Search React App</div>
+      <p class="project-desc">A fast movie discovery interface for searching titles, browsing results, and surfacing key details in a clean, responsive layout.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://github.com/AbeDaDev/bookbot" class="project-card fade-up" style="transition-delay:0.4s;">
+      <div class="project-num">05 / 05</div>
+      <div class="project-title">Book bot</div>
+      <p class="project-desc">A book tracking project that organizes titles, supports structured data handling, and keeps the reading workflow simple.</p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">CLI</span>
+        <span class="tag">Data</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Other Projects ── -->
+<section class="projects-section" id="other-projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title fade-up">OTHER PROJECTS</h2>
+  <div class="projects-grid">
+
+    <a href="https://abepersonaldashboard.netlify.app" class="project-card fade-up">
+      <div class="project-num">01 / 13</div>
       <div class="project-title">Personal Dashboard</div>
       <p class="project-desc">Command-line productivity suite with AI-assisted code generation, scaffolding templates, and git workflow automation.</p>
       <div class="project-tags">
@@ -524,13 +623,162 @@
       <div class="project-arrow">→</div>
     </a>
 
+    <a href="https://talklucha.netlify.app/" class="project-card fade-up" style="transition-delay:0.1s;">
+      <div class="project-num">02 / 13</div>
+      <div class="project-title">Talk lucha Blog</div>
+      <p class="project-desc">A content-focused blog experience with clean reading flow, strong typography, and a simple responsive layout.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Blog</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://simple-nft-website.netlify.app/" class="project-card fade-up" style="transition-delay:0.2s;">
+      <div class="project-num">03 / 13</div>
+      <div class="project-title">NFT Static Website</div>
+      <p class="project-desc">A sleek static landing page for showcasing NFT-style visuals with a bold, modern presentation.</p>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://igossip.netlify.app/" class="project-card fade-up" style="transition-delay:0.3s;">
+      <div class="project-num">04 / 13</div>
+      <div class="project-title">iGOSSIP</div>
+      <p class="project-desc">A modern social-style web experience with playful visuals, smooth navigation, and responsive presentation.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abes-candycrush.netlify.app/" class="project-card fade-up" style="transition-delay:0.4s;">
+      <div class="project-num">05 / 13</div>
+      <div class="project-title">CandyCrush Web App</div>
+      <p class="project-desc">A playful browser game experience with colorful visuals, quick interactions, and responsive gameplay.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Game</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <button class="projects-toggle" id="other-projects-toggle" type="button" aria-expanded="false" aria-controls="other-projects-more">
+      Show remaining projects ↓
+    </button>
+
+    <div class="projects-collapse" id="other-projects-more" aria-hidden="true" hidden>
+    <a href="https://abes-candycrush.netlify.app/" class="project-card fade-up" style="transition-delay:0.5s;">
+      <div class="project-num">06 / 13</div>
+      <div class="project-title">QR Generator</div>
+      <p class="project-desc">A compact utility app for quickly generating QR codes with a clean, simple interface.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Utility</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abessimpleweather.netlify.app/" class="project-card fade-up" style="transition-delay:0.6s;">
+      <div class="project-num">07 / 13</div>
+      <div class="project-title">Weather</div>
+      <p class="project-desc">A simple weather experience for checking current conditions and forecasts in a clean, responsive interface.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abes-temperature-conversion.netlify.app/" class="project-card fade-up" style="transition-delay:0.7s;">
+      <div class="project-num">08 / 13</div>
+      <div class="project-title">Temperature convertion</div>
+      <p class="project-desc">A lightweight conversion tool for quickly switching between temperature units in a simple interface.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Utility</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abesnotesapp.netlify.app/" class="project-card fade-up" style="transition-delay:1.0s;">
+      <div class="project-num">09 / 13</div>
+      <div class="project-title">Notes</div>
+      <p class="project-desc">A focused notes app for capturing ideas, organizing thoughts, and keeping content easy to revisit.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Productivity</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+    <a href="https://app.netlify.com/projects/dragdropchess/overview" class="project-card fade-up" style="transition-delay:1.1s;">
+      <div class="project-num">10 / 13</div>
+      <div class="project-title">Drag &amp; drop chess</div>
+      <p class="project-desc">A chess experience with drag-and-drop interaction for moving pieces across the board.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Game</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abes-digital-clock.netlify.app/" class="project-card fade-up" style="transition-delay:1.2s;">
+      <div class="project-num">11 / 13</div>
+      <div class="project-title">digital clock</div>
+      <p class="project-desc">A simple digital clock interface that displays the current time in a clean, focused layout.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Utility</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abes-quotegenerator.netlify.app/" class="project-card fade-up" style="transition-delay:1.3s;">
+      <div class="project-num">12 / 13</div>
+      <div class="project-title">Quote Generator</div>
+      <p class="project-desc">A quick quote generator for discovering and refreshing inspirational messages in a simple interface.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Utility</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://abes-calculator.netlify.app/" class="project-card fade-up" style="transition-delay:1.4s;">
+      <div class="project-num">13 / 13</div>
+      <div class="project-title">Calculator</div>
+      <p class="project-desc">A simple calculator for performing quick everyday arithmetic in a clean interface.</p>
+      <div class="project-tags">
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Utility</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+    </div>
+
   </div>
 </section>
 
 <!-- ── Experience ── -->
 <section class="experience-section" id="experience">
   <div class="section-label">Background</div>
-  <h2 class="section-title fade-up">EXPERIENCE &<br />EDUCATION</h2>
+  <h2 class="section-title fade-up">EDUCATION &<br />CERTIFICATIONS</h2>
   <div class="exp-list">
 
     <div class="exp-item fade-up">
@@ -688,6 +936,20 @@
       });
     }, 500);
   });
+
+  const otherProjectsToggle = document.getElementById('other-projects-toggle');
+  const otherProjectsMore = document.getElementById('other-projects-more');
+  if (otherProjectsToggle && otherProjectsMore) {
+    otherProjectsToggle.addEventListener('click', () => {
+      const isOpen = otherProjectsToggle.getAttribute('aria-expanded') === 'true';
+      otherProjectsToggle.setAttribute('aria-expanded', String(!isOpen));
+      otherProjectsToggle.classList.toggle('is-open', !isOpen);
+      otherProjectsMore.hidden = isOpen;
+      otherProjectsMore.setAttribute('aria-hidden', String(isOpen));
+      otherProjectsMore.classList.toggle('is-open', !isOpen);
+      otherProjectsToggle.textContent = isOpen ? 'Show remaining projects ↓' : 'Hide remaining projects ↑';
+    });
+  }
 </script>
 </body>
 </html>
