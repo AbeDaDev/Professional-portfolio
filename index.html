@@ -251,6 +251,18 @@
   }
   .projects-grid .project-card:last-child { border-bottom: 0; }
   .project-card:hover { background: var(--surface); }
+  .project-card.fade-up.project-card--from-left { transform: translateX(-4.5rem); }
+  .project-card.fade-up.project-card--from-right {
+    grid-template-columns: auto 1fr minmax(13rem, 31%);
+    grid-template-areas:
+      "arrow num preview"
+      "title title preview"
+      "desc desc preview"
+      "tags tags preview";
+    transform: translateX(4.5rem);
+  }
+  .project-card.fade-up.visible.project-card--from-left,
+  .project-card.fade-up.visible.project-card--from-right { transform: translateX(0); }
   .project-preview {
     grid-area: preview;
     position: relative;
@@ -278,6 +290,12 @@
     transform: scale(1.01);
     transition: transform 0.4s ease, filter 0.4s ease;
   }
+  .project-preview__hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
   .project-preview-label {
     position: absolute; z-index: 2; left: 0.65rem; bottom: 0.55rem;
     padding: 0.18rem 0.45rem;
@@ -288,7 +306,43 @@
     font-family: var(--font-mono); font-size: 0.56rem;
     letter-spacing: 0.1em; text-transform: uppercase;
   }
+  .project-preview--code-only {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.25rem;
+    background:
+      linear-gradient(135deg, rgba(91,149,255,0.14), transparent 58%),
+      var(--surface2);
+  }
+  .project-preview--code-only::after {
+    content: '> bookbot --analyze\A  reading text...\A  complete';
+    white-space: pre;
+    color: var(--accent2);
+    font-family: var(--font-mono); font-size: 0.62rem;
+    line-height: 1.8;
+  }
+  .project-preview-code-label {
+    color: var(--text);
+    font-family: var(--font-mono); font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .project-preview--placeholder {
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background:
+      linear-gradient(135deg, rgba(91,149,255,0.12), transparent 58%),
+      var(--surface2);
+  }
+  .project-preview-placeholder-label {
+    color: var(--muted);
+    font-family: var(--font-mono); font-size: 0.66rem;
+    letter-spacing: 0.12em; text-align: center; text-transform: uppercase;
+  }
   .project-card:hover .project-preview img { transform: scale(1.07); filter: brightness(1.08); }
+  .project-card:hover .project-preview__hover { opacity: 1; }
   .project-num {
     grid-area: num;
     font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
@@ -453,6 +507,11 @@
       padding: 1.5rem;
     }
     .project-preview { min-height: 11rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card.fade-up.project-card--from-left,
+    .project-card.fade-up.project-card--from-right { transform: none; }
   }
 
   @media (min-width: 1400px) {
@@ -736,7 +795,7 @@
     </button>
 
     <div class="projects-collapse" id="other-projects-more" aria-hidden="true" hidden>
-    <a href="https://abes-candycrush.netlify.app/" class="project-card fade-up" style="transition-delay:0.5s;">
+    <a href="https://abes-qrgenerator.netlify.app/" class="project-card fade-up" style="transition-delay:0.5s;">
       <div class="project-num">06 / 13</div>
       <div class="project-title">QR Generator</div>
       <p class="project-desc">A compact utility app for quickly generating QR codes with a clean, simple interface.</p>
@@ -783,7 +842,7 @@
       </div>
       <div class="project-arrow">→</div>
     </a>
-    <a href="https://app.netlify.com/projects/dragdropchess/overview" class="project-card fade-up" style="transition-delay:1.1s;">
+    <a href="https://dragdropchess.netlify.app/" class="project-card fade-up" style="transition-delay:1.1s;">
       <div class="project-num">10 / 13</div>
       <div class="project-title">Drag &amp; drop chess</div>
       <p class="project-desc">A chess experience with drag-and-drop interaction for moving pieces across the board.</p>
@@ -948,40 +1007,58 @@
   // Project thumbnails let visitors scan the work before leaving the portfolio.
   // Keep these local so the page remains fast and previews do not rely on a third-party service.
   const projectPreviewImages = {
-    'Corner Stone Realty Solutions': new URL('./images/victorspt1.png', import.meta.url).href,
-    'VSD Estates': new URL('./images/victorspt2.png', import.meta.url).href,
-    'Watch Me Time Pieces': new URL('./images/header.jpg', import.meta.url).href,
-    'Cheat Vault': new URL('./images/dashboard.png', import.meta.url).href,
-    'FOREVER.': new URL('./images/Ecommerce Website.png', import.meta.url).href,
-    'Movie Search React App': new URL('./images/Photography.jpeg', import.meta.url).href,
-    'Book bot': new URL('./images/portraitbot.png', import.meta.url).href,
-    'Personal Dashboard': new URL('./images/dashboard.png', import.meta.url).href,
-    'Talk lucha Blog': new URL('./collage/lucha.JPG', import.meta.url).href,
-    'NFT Static Website': new URL('./images/business-cards.png', import.meta.url).href,
-    'iGOSSIP': new URL('./images/Photography.jpeg', import.meta.url).href,
-    'CandyCrush Web App': new URL('./collage/food.png', import.meta.url).href,
-    'QR Generator': new URL('./images/QR.JPG', import.meta.url).href,
-    'Weather': new URL('./images/header.jpg', import.meta.url).href,
-    'Temperature convertion': new URL('./images/dashboard.png', import.meta.url).href,
-    'Notes': new URL('./images/email.png', import.meta.url).href,
-    'Drag & drop chess': new URL('./collage/marioworld.jpeg', import.meta.url).href,
-    'digital clock': new URL('./images/dashboard.png', import.meta.url).href,
-    'Quote Generator': new URL('./images/portraitbot.png', import.meta.url).href,
-    'Calculator': new URL('./images/dashboard.png', import.meta.url).href
+    'Corner Stone Realty Solutions': {
+      src: new URL('./images/Projects/Corner Stone Realty Solutions.png', import.meta.url).href,
+      hoverSrc: new URL('./images/Projects/Corner Stone Realty Solutions2.png', import.meta.url).href
+    },
+    'VSD Estates': {
+      src: new URL('./images/Projects/VSD Estates.png', import.meta.url).href,
+      hoverSrc: new URL('./images/Projects/VSD Estates2.png', import.meta.url).href
+    },
+    'Watch Me Time Pieces': {
+      src: new URL('./images/Projects/watch_me.png', import.meta.url).href,
+      hoverSrc: new URL('./images/Projects/watch_me2.png', import.meta.url).href
+    },
+    'Cheat Vault': { src: new URL('./images/Projects/Cheat Vault.png', import.meta.url).href },
+    'FOREVER.': { src: new URL('./images/Projects/forever.png', import.meta.url).href },
+    'Movie Search React App': { placeholder: true },
+    'Book bot': { codeOnly: true },
+    'Personal Dashboard': { src: new URL('./images/Projects/dashboard.png', import.meta.url).href },
+    'Talk lucha Blog': { src: new URL('./images/Projects/Talk Lucha.png', import.meta.url).href },
+    'NFT Static Website': { src: new URL('./images/Projects/NFT site.png', import.meta.url).href },
+    'iGOSSIP': { src: new URL('./images/Projects/iGossip.png', import.meta.url).href },
+    'CandyCrush Web App': { src: new URL('./images/Projects/Candy Crush.png', import.meta.url).href },
+    'QR Generator': { src: new URL('./images/Projects/QR Generator.png', import.meta.url).href },
+    'Weather': { src: new URL('./images/Projects/Weather App.png', import.meta.url).href },
+    'Temperature convertion': { src: new URL('./images/Projects/Temperature Convertion.png', import.meta.url).href },
+    'Notes': { src: new URL('./images/Projects/Notes.png', import.meta.url).href },
+    'Drag & drop chess': { src: new URL('./images/Projects/Drag and Drop.png', import.meta.url).href },
+    'digital clock': { src: new URL('./images/Projects/Digital Clock.png', import.meta.url).href },
+    'Quote Generator': { src: new URL('./images/Projects/Quote Generator.png', import.meta.url).href },
+    'Calculator': { src: new URL('./images/Projects/Calculator.png', import.meta.url).href }
   };
 
   document.querySelectorAll('.project-card').forEach((card) => {
     const title = card.querySelector('.project-title');
-    const imageSrc = title && projectPreviewImages[title.textContent.trim()];
-    if (!title || !imageSrc) return;
+    const previewData = title && projectPreviewImages[title.textContent.trim()];
+    if (!title || !previewData) return;
 
     const preview = document.createElement('figure');
-    preview.className = 'project-preview';
-    preview.innerHTML = `
-      <img src="${imageSrc}" alt="Preview of ${title.textContent.trim()}" loading="lazy" decoding="async">
-      <figcaption class="project-preview-label">Project preview</figcaption>
-    `;
+    preview.className = `project-preview${previewData.codeOnly ? ' project-preview--code-only' : ''}${previewData.placeholder ? ' project-preview--placeholder' : ''}`;
+    preview.innerHTML = previewData.codeOnly
+      ? `<span class="project-preview-code-label">Command-line project</span>
+         <figcaption class="project-preview-label">No visual preview</figcaption>`
+      : previewData.placeholder
+        ? `<span class="project-preview-placeholder-label">Project preview<br>coming soon</span>
+           <figcaption class="project-preview-label">Preview pending</figcaption>`
+      : `<img src="${previewData.src}" alt="Preview of ${title.textContent.trim()}" loading="lazy" decoding="async">
+         ${previewData.hoverSrc ? `<img class="project-preview__hover" src="${previewData.hoverSrc}" alt="" loading="lazy" decoding="async">` : ''}
+         <figcaption class="project-preview-label">Project preview</figcaption>`;
     card.insertBefore(preview, card.firstChild);
+  });
+
+  document.querySelectorAll('.project-card').forEach((card, index) => {
+    card.classList.add(index % 2 === 0 ? 'project-card--from-left' : 'project-card--from-right');
   });
 
   // Scroll fade-up observer (non-hero elements)
