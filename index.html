@@ -238,22 +238,69 @@
     border-bottom: 1px solid var(--border);
     background: var(--bg);
     transition: background 0.2s;
-    text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 1.25rem;
+    text-decoration: none; color: inherit; display: grid;
+    grid-template-columns: minmax(13rem, 31%) 1fr auto;
+    grid-template-areas:
+      "preview num arrow"
+      "preview title title"
+      "preview desc desc"
+      "preview tags tags";
+    column-gap: 2rem; row-gap: 1rem;
     width: 100%;
     box-sizing: border-box;
   }
   .projects-grid .project-card:last-child { border-bottom: 0; }
   .project-card:hover { background: var(--surface); }
+  .project-preview {
+    grid-area: preview;
+    position: relative;
+    align-self: stretch;
+    min-height: 12rem;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--border2);
+    border-radius: 0.65rem;
+    background: var(--surface2);
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.18);
+  }
+  .project-preview::before {
+    content: '';
+    position: absolute; inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 55%, rgba(10,10,11,0.5));
+    pointer-events: none;
+  }
+  .project-preview img {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.01);
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  .project-preview-label {
+    position: absolute; z-index: 2; left: 0.65rem; bottom: 0.55rem;
+    padding: 0.18rem 0.45rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    background: rgba(10,10,11,0.7);
+    color: var(--text);
+    font-family: var(--font-mono); font-size: 0.56rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .project-card:hover .project-preview img { transform: scale(1.07); filter: brightness(1.08); }
   .project-num {
+    grid-area: num;
     font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
     letter-spacing: 0.12em;
   }
   .project-title {
+    grid-area: title;
     font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; color: var(--text);
     line-height: 1.05;
   }
-  .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; flex: 1; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-desc { grid-area: desc; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+  .project-tags { grid-area: tags; display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tag {
     padding: 0.3rem 0.75rem;
     background: var(--tag-bg); border: 1px solid var(--tag-border);
@@ -262,10 +309,11 @@
     color: var(--accent);
   }
   .project-arrow {
+    grid-area: arrow;
     width: 2.5rem; height: 2.5rem; border-radius: 50%;
     border: 1px solid var(--border2);
     display: flex; align-items: center; justify-content: center;
-    align-self: flex-start; margin-top: auto;
+    align-self: start;
     transition: background 0.2s, border-color 0.2s;
     font-size: 1rem; color: var(--muted);
   }
@@ -393,6 +441,18 @@
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .exp-type { text-align: left; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .project-card {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "preview preview"
+        "num arrow"
+        "title title"
+        "desc desc"
+        "tags tags";
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+    .project-preview { min-height: 11rem; }
   }
 
   @media (min-width: 1400px) {
@@ -878,11 +938,50 @@
   <span>Designed & built with intention</span>
 </footer>
 
-<script>
+<script type="module">
   // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Project thumbnails let visitors scan the work before leaving the portfolio.
+  // Keep these local so the page remains fast and previews do not rely on a third-party service.
+  const projectPreviewImages = {
+    'Corner Stone Realty Solutions': new URL('./images/victorspt1.png', import.meta.url).href,
+    'VSD Estates': new URL('./images/victorspt2.png', import.meta.url).href,
+    'Watch Me Time Pieces': new URL('./images/header.jpg', import.meta.url).href,
+    'Cheat Vault': new URL('./images/dashboard.png', import.meta.url).href,
+    'FOREVER.': new URL('./images/Ecommerce Website.png', import.meta.url).href,
+    'Movie Search React App': new URL('./images/Photography.jpeg', import.meta.url).href,
+    'Book bot': new URL('./images/portraitbot.png', import.meta.url).href,
+    'Personal Dashboard': new URL('./images/dashboard.png', import.meta.url).href,
+    'Talk lucha Blog': new URL('./collage/lucha.JPG', import.meta.url).href,
+    'NFT Static Website': new URL('./images/business-cards.png', import.meta.url).href,
+    'iGOSSIP': new URL('./images/Photography.jpeg', import.meta.url).href,
+    'CandyCrush Web App': new URL('./collage/food.png', import.meta.url).href,
+    'QR Generator': new URL('./images/QR.JPG', import.meta.url).href,
+    'Weather': new URL('./images/header.jpg', import.meta.url).href,
+    'Temperature convertion': new URL('./images/dashboard.png', import.meta.url).href,
+    'Notes': new URL('./images/email.png', import.meta.url).href,
+    'Drag & drop chess': new URL('./collage/marioworld.jpeg', import.meta.url).href,
+    'digital clock': new URL('./images/dashboard.png', import.meta.url).href,
+    'Quote Generator': new URL('./images/portraitbot.png', import.meta.url).href,
+    'Calculator': new URL('./images/dashboard.png', import.meta.url).href
+  };
+
+  document.querySelectorAll('.project-card').forEach((card) => {
+    const title = card.querySelector('.project-title');
+    const imageSrc = title && projectPreviewImages[title.textContent.trim()];
+    if (!title || !imageSrc) return;
+
+    const preview = document.createElement('figure');
+    preview.className = 'project-preview';
+    preview.innerHTML = `
+      <img src="${imageSrc}" alt="Preview of ${title.textContent.trim()}" loading="lazy" decoding="async">
+      <figcaption class="project-preview-label">Project preview</figcaption>
+    `;
+    card.insertBefore(preview, card.firstChild);
   });
 
   // Scroll fade-up observer (non-hero elements)

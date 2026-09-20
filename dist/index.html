@@ -92,7 +92,7 @@
     position: relative; overflow: hidden;
     background-image:
     linear-gradient(rgba(10,10,11,0.22), rgba(10,10,11,0.42)),
-    url('/assets/softwareengineer-CSkSsIag.png');
+    url('/assets/softwareengineer-RWprWR8r.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -215,7 +215,7 @@
   .skill-card:hover {
     color: var(--text);
     transform: translateY(-2px);
-    background: rgba(255,255,255,0.03);
+    background: rgba(225, 9, 9, 0.03);
   }
   .skill-card img {
     width: 3rem;
@@ -238,22 +238,69 @@
     border-bottom: 1px solid var(--border);
     background: var(--bg);
     transition: background 0.2s;
-    text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 1.25rem;
+    text-decoration: none; color: inherit; display: grid;
+    grid-template-columns: minmax(13rem, 31%) 1fr auto;
+    grid-template-areas:
+      "preview num arrow"
+      "preview title title"
+      "preview desc desc"
+      "preview tags tags";
+    column-gap: 2rem; row-gap: 1rem;
     width: 100%;
     box-sizing: border-box;
   }
   .projects-grid .project-card:last-child { border-bottom: 0; }
   .project-card:hover { background: var(--surface); }
+  .project-preview {
+    grid-area: preview;
+    position: relative;
+    align-self: stretch;
+    min-height: 12rem;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--border2);
+    border-radius: 0.65rem;
+    background: var(--surface2);
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.18);
+  }
+  .project-preview::before {
+    content: '';
+    position: absolute; inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, transparent 55%, rgba(10,10,11,0.5));
+    pointer-events: none;
+  }
+  .project-preview img {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.01);
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  .project-preview-label {
+    position: absolute; z-index: 2; left: 0.65rem; bottom: 0.55rem;
+    padding: 0.18rem 0.45rem;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    background: rgba(10,10,11,0.7);
+    color: var(--text);
+    font-family: var(--font-mono); font-size: 0.56rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .project-card:hover .project-preview img { transform: scale(1.07); filter: brightness(1.08); }
   .project-num {
+    grid-area: num;
     font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
     letter-spacing: 0.12em;
   }
   .project-title {
+    grid-area: title;
     font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; color: var(--text);
     line-height: 1.05;
   }
-  .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; flex: 1; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-desc { grid-area: desc; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+  .project-tags { grid-area: tags; display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tag {
     padding: 0.3rem 0.75rem;
     background: var(--tag-bg); border: 1px solid var(--tag-border);
@@ -262,10 +309,11 @@
     color: var(--accent);
   }
   .project-arrow {
+    grid-area: arrow;
     width: 2.5rem; height: 2.5rem; border-radius: 50%;
     border: 1px solid var(--border2);
     display: flex; align-items: center; justify-content: center;
-    align-self: flex-start; margin-top: auto;
+    align-self: start;
     transition: background 0.2s, border-color 0.2s;
     font-size: 1rem; color: var(--muted);
   }
@@ -393,6 +441,18 @@
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .exp-type { text-align: left; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .project-card {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "preview preview"
+        "num arrow"
+        "title title"
+        "desc desc"
+        "tags tags";
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+    .project-preview { min-height: 11rem; }
   }
 
   @media (min-width: 1400px) {
@@ -426,6 +486,7 @@
     }
   }
 </style>
+  <script type="module" crossorigin src="/assets/index-B4-9ECq_.js"></script>
 </head>
 <body>
 
@@ -541,27 +602,27 @@
   <h2 class="section-title fade-up">MAIN PROJECTS</h2>
   <div class="projects-grid">
 
-    <a href="https://watchme-luxurywatches.netlify.app" class="project-card fade-up">
+    <a href="https://watchmetimepieces.netlify.app/" class="project-card fade-up">
       <div class="project-num">01 / 05</div>
-      <div class="project-title">Wacth Me Time Pieces</div>
+      <div class="project-title">Watch Me Time Pieces</div>
       <p class="project-desc">Full-stack conversational AI interface with real-time streaming, memory context, and multi-model routing. Built for scale.</p>
       <div class="project-tags">
         <span class="tag">React</span>
-        <span class="tag">TypeScript</span>
+        <span class="tag">JavaScript</span>
         <span class="tag">OpenAI API</span>
         <span class="tag">Node.js</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
 
-    <a href="https://app.netlify.com/projects/cheatvault/overview" class="project-card fade-up" style="transition-delay:0.1s;">
+    <a href="https://cheatvault.netlify.app" class="project-card fade-up" style="transition-delay:0.1s;">
       <div class="project-num">02 / 05</div>
       <div class="project-title">Cheat Vault</div>
       <p class="project-desc">Headless CMS-powered portfolio system with AI content suggestions, draft management, and one-click deploys.</p>
       <div class="project-tags">
-        <span class="tag">Astro</span>
-        <span class="tag">Contentful</span>
-        <span class="tag">TypeScript</span>
+        <span class="tag">React</span>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">JavaScript</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -804,8 +865,8 @@
     <div class="exp-item fade-up">
       <div class="exp-year">2020 — 2022</div>
       <div>
-        <div class="exp-title">Computer Science</div>
-        <div class="exp-org">Victor Valley College</div>
+        <div class="exp-title">Back End Engineer</div>
+        <div class="exp-org">Boot.Dev</div>
         <p class="exp-desc">Studied algorithms, data structures, and software engineering fundamentals while building side projects in web development and automation.</p>
       </div>
       <div class="exp-type">Education</div>
@@ -878,78 +939,5 @@
   <span>Designed & built with intention</span>
 </footer>
 
-<script>
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // Scroll fade-up observer (non-hero elements)
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // ── Typing effect ──
-  function typeText(el, text, speed, cb) {
-    let i = 0;
-    el.textContent = '';
-    function tick() {
-      if (i < text.length) {
-        el.textContent += text[i++];
-        setTimeout(tick, speed);
-      } else if (cb) cb();
-    }
-    tick();
-  }
-
-  function blinkCursor(cursorEl, times, interval, cb) {
-    let count = 0;
-    const id = setInterval(() => {
-      cursorEl.style.opacity = cursorEl.style.opacity === '0' ? '1' : '0';
-      if (++count >= times * 2) { clearInterval(id); cursorEl.style.opacity = '1'; if (cb) cb(); }
-    }, interval);
-  }
-
-  let heroTypingHasRun = false;
-
-  window.addEventListener('DOMContentLoaded', () => {
-    if (heroTypingHasRun) return;
-    heroTypingHasRun = true;
-
-    const roleEl   = document.getElementById('typed-role');
-    const roleCur  = document.getElementById('role-cursor');
-    const nameEl   = document.getElementById('hero-name');
-    const heroSub  = document.querySelector('.hero-sub');
-
-    // Step 1: type the role label after short delay
-    setTimeout(() => {
-      typeText(roleEl, 'AI-First Full-Stack ENGINEER', 42, () => {
-        // Step 2: reveal the name, then the supporting line and buttons
-        nameEl.classList.add('is-visible');
-        if (heroSub) {
-          setTimeout(() => {
-            heroSub.classList.add('visible');
-          }, 200);
-        }
-      });
-    }, 500);
-  });
-
-  const otherProjectsToggle = document.getElementById('other-projects-toggle');
-  const otherProjectsMore = document.getElementById('other-projects-more');
-  if (otherProjectsToggle && otherProjectsMore) {
-    otherProjectsToggle.addEventListener('click', () => {
-      const isOpen = otherProjectsToggle.getAttribute('aria-expanded') === 'true';
-      otherProjectsToggle.setAttribute('aria-expanded', String(!isOpen));
-      otherProjectsToggle.classList.toggle('is-open', !isOpen);
-      otherProjectsMore.hidden = isOpen;
-      otherProjectsMore.setAttribute('aria-hidden', String(isOpen));
-      otherProjectsMore.classList.toggle('is-open', !isOpen);
-      otherProjectsToggle.textContent = isOpen ? 'Show remaining projects ↓' : 'Hide remaining projects ↑';
-    });
-  }
-</script>
 </body>
 </html>
