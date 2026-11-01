@@ -66,7 +66,7 @@
   .nav-logo {
     display: inline-flex; align-items: center;
     font-family: var(--font-display);
-    font-size: 1.65rem; line-height: 1;
+    font-size: 2.4rem; line-height: 1;
     letter-spacing: 0.08em;
     color: var(--text);
     text-decoration: none;
@@ -86,6 +86,16 @@
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
   }
+  .nav-logo { position: relative; }
+  .nav-logo::after {
+    content: '';
+    position: absolute; left: 0; right: 0; bottom: 0.08em;
+    height: 2px; border-radius: 2px;
+    background: var(--accent-gradient);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .nav-logo:hover::after { transform: scaleX(0.85); }
   .nav-logo-dot {
     color: #ff4d4d;
     display: inline-block;
@@ -447,12 +457,15 @@
     line-height: 1.05;
   }
   .project-desc { grid-area: desc; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
-  .project-tags { grid-area: tags; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-tags { grid-area: tags; display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .tag {
-    padding: 0.3rem 0.75rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 6.25rem; height: 1.6rem;
+    white-space: nowrap;
+    padding: 0 0.5rem;
     background: var(--tag-bg); border: 1px solid var(--tag-border);
-    border-radius: 1rem;
-    font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em;
+    border-radius: 999px;
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.04em;
     color: var(--accent);
   }
   .project-arrow {
@@ -498,7 +511,7 @@
   .experience-section { border-top: 1px solid var(--border); }
   .exp-list { border-top: 1px solid var(--border); }
   .exp-item {
-    display: grid; grid-template-columns: 1fr 2fr 1fr;
+    display: grid; grid-template-columns: 1fr 3fr;
     align-items: start; gap: 2rem;
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--border);
@@ -506,8 +519,54 @@
   .exp-year { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
   .exp-title { font-size: 1.15rem; font-weight: 500; color: var(--text); margin-bottom: 0.35rem; }
   .exp-org { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; }
+  .exp-org a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--tag-border); transition: color 0.2s, border-color 0.2s; }
+  .exp-org a:hover { color: var(--accent2); border-color: var(--accent2); }
   .exp-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
-  .exp-type { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted); text-align: right; }
+
+  /* ── Certificates ── */
+  .certs { margin-top: 4rem; }
+  .certs-label, .exp-list-label {
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .cert-card {
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2.5rem; align-items: center;
+    padding: 1.5rem;
+    border: 1px solid var(--border2); border-radius: 1rem;
+    background: var(--surface);
+  }
+  .cert-card + .cert-card { margin-top: 1.5rem; }
+  .cert-group-label {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin: 2.5rem 0 1rem;
+    font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; letter-spacing: 0.04em;
+  }
+  .certs-label + .cert-group-label { margin-top: 0; }
+  .cert-group-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .cert-group-label a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .cert-group-label a:hover { color: var(--accent2); }
+  .cert-image {
+    display: block; overflow: hidden;
+    border-radius: 0.65rem; border: 1px solid var(--border2);
+    box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.3);
+  }
+  .cert-image img { display: block; width: 100%; height: auto; transition: transform 0.4s ease; }
+  .cert-image:hover img { transform: scale(1.03); }
+  .cert-org { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  .cert-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; letter-spacing: 0.02em; margin: 0.6rem 0 0.5rem; }
+  .cert-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; }
+  .cert-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .cert-verify {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid var(--tag-border); border-radius: 2rem;
+    background: var(--tag-bg); color: var(--accent2);
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .cert-verify:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 
   /* ── About ── */
   .about-section { border-top: 1px solid var(--border); }
@@ -616,8 +675,6 @@
     .section-title { margin-bottom: 3rem; }
     .about-inner { gap: 3rem; }
     .project-card { padding: 2rem 1.5rem; column-gap: 1.5rem; }
-    .exp-item { grid-template-columns: 1fr 2fr; }
-    .exp-type { grid-column: 2; text-align: left; }
     footer { padding: 2rem 1.75rem; }
   }
 
@@ -660,7 +717,8 @@
     .contact-qr { justify-self: start; width: min(100%, 14rem); }
     .contact-links { margin-top: 2rem; gap: 0.75rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.75rem 0; }
-    .exp-type { grid-column: auto; }
+    .certs { margin-top: 3rem; }
+    .cert-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1rem; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.75rem 1.25rem; }
     .project-card,
     .project-card.fade-up.project-card--from-right {
@@ -687,17 +745,20 @@
 
   @media (max-width: 480px) {
     .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.7rem; letter-spacing: 0.06em; }
-    .nav-logo { font-size: 1.45rem; }
+    .nav-logo { font-size: 2.15rem; }
     .nav-logo-mark { width: 1.9rem; height: 1.9rem; }
     .nav-brand { gap: 0.5rem; }
     .hero-actions, .hero-actions .btn-primary { width: 100%; }
     .hero-actions .btn-primary { justify-content: center; }
     .about-stats { grid-template-columns: 1fr 1fr; }
     .contact-link { flex: 1 1 100%; justify-content: center; }
+    .tag { min-width: 5.9rem; height: 1.5rem; font-size: 0.62rem; }
   }
 
   @media (max-width: 360px) {
     .nav-cta::before { display: none; }
+    .nav-logo { font-size: 1.85rem; letter-spacing: 0.03em; }
+    .nav-logo-mark { width: 1.65rem; height: 1.65rem; }
     .stat-num { font-size: 2rem; }
   }
 
@@ -743,22 +804,22 @@
 <!-- ── Nav ── -->
 <nav id="nav">
   <div class="nav-brand">
-    <a href="https://www.instagram.com/abe_the_dev/" class="nav-logo-mark" target="_blank" rel="noopener noreferrer" aria-label="Abe on Instagram">
+    <a href="https://www.instagram.com/abe_el_dev/" class="nav-logo-mark" target="_blank" rel="noopener noreferrer" aria-label="Abe on Instagram">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
       </svg>
     </a>
-    <a href="#" class="nav-logo" aria-label="Abe — back to top">
-      <span class="nav-logo-text">ABE</span><span class="nav-logo-dot">.</span>
+    <a href="https://www.instagram.com/abe_el_dev/" class="nav-logo" target="_blank" rel="noopener noreferrer" aria-label="Abe EL Dev on Instagram">
+      <span class="nav-logo-text">Abe EL Dev</span><span class="nav-logo-dot">.</span>
     </a>
   </div>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#clients-projects">Experience</a></li>
-    <li><a href="#experience">Education</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#clients-projects">Work</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#experience">Education</a></li>
   </ul>
   <div class="nav-actions">
     <a href="#contact" class="nav-cta">Let's talk</a>
@@ -778,7 +839,7 @@
     <div class="hero-sub fade-up" style="transition-delay:0.15s;">
       <p class="hero-desc">Building intelligent web experiences — where AI meets craft, and interfaces feel inevitable.</p>
       <div class="hero-actions">
-        <a href="#work" class="btn-primary">View Work ↓</a>
+        <a href="https://github.com/AbeDaDev" class="btn-primary" target="_blank" rel="noopener">View My GitHub ↗</a>
       </div>
     </div>
   </div>
@@ -826,6 +887,38 @@
   </div>
 </section>
 
+<!-- ── About ── -->
+<section class="about-section" id="about">
+  <div class="section-label">About Me</div>
+  <div class="about-inner">
+    <div>
+      <h2 class="section-title fade-up" style="margin-bottom:2rem;">WHO I<br />AM</h2>
+      <p class="about-text fade-up">
+        I'm Abraham, a full-stack developer based in <strong>Victorville, CA</strong> — obsessively focused on the intersection of <strong>AI and great UX</strong>.<br /><br />
+        I believe the best software feels effortless. I care deeply about code quality, design craft, and building tools that <strong>genuinely help people</strong>. When I'm not coding, I'm exploring new AI models and figuring out what they make possible next.
+      </p>
+    </div>
+    <div class="about-stats fade-up">
+      <div class="stat-card">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">AI</div>
+        <div class="stat-label">First approach</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Remote ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Projects ── -->
 <section class="projects-section" id="clients-projects">
   <div class="section-label">Selected Work</div>
@@ -861,9 +954,10 @@
       <div class="project-title">Corner Stone Realty Solutions</div>
       <p class="project-desc">Real-time analytics dashboard for e-commerce operators with AI-generated insights and automated reporting.</p>
       <div class="project-tags">
-        <span class="tag">Next.js</span>
-        <span class="tag">Tailwind</span>
-        <span class="tag">Recharts</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
         <span class="tag">OpenAI API</span>
       </div>
       <div class="project-arrow">→</div>
@@ -874,10 +968,10 @@
       <div class="project-title">VSD Estates</div>
       <p class="project-desc">Real-time analytics dashboard for modern real estate workflows with AI-generated insights and automated reporting.</p>
       <div class="project-tags">
-        <span class="tag">Next.js</span>
-        <span class="tag">Tailwind</span>
-        <span class="tag">Recharts</span>
-        <span class="tag">OpenAI API</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -889,7 +983,9 @@
       <div class="project-tags">
         <span class="tag">HTML</span>
         <span class="tag">CSS</span>
+        <span class="tag">React</span>
         <span class="tag">JavaScript</span>
+        <span class="tag">MongoDB</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -908,10 +1004,11 @@
       <div class="project-title">Watch Me Time Pieces</div>
       <p class="project-desc">Full-stack conversational AI interface with real-time streaming, memory context, and multi-model routing. Built for scale.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">React</span>
         <span class="tag">JavaScript</span>
         <span class="tag">OpenAI API</span>
-        <span class="tag">Node.js</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -921,9 +1018,11 @@
       <div class="project-title">Cheat Vault</div>
       <p class="project-desc">Headless CMS-powered portfolio system with AI content suggestions, draft management, and one-click deploys.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">React</span>
-        <span class="tag">OpenAI API</span>
         <span class="tag">JavaScript</span>
+        <span class="tag">OpenAI API</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -933,9 +1032,12 @@
       <div class="project-title">FOREVER.</div>
       <p class="project-desc">A brand-focused web experience with a refined layout, bold typography, and smooth interactive presentation.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
         <span class="tag">Next.js</span>
         <span class="tag">Tailwind</span>
-        <span class="tag">JavaScript</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -945,6 +1047,8 @@
       <div class="project-title">Movie Search React App</div>
       <p class="project-desc">A fast movie discovery interface for searching titles, browsing results, and surfacing key details in a clean, responsive layout.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">React</span>
         <span class="tag">JavaScript</span>
         <span class="tag">API</span>
@@ -978,8 +1082,11 @@
       <div class="project-title">Personal Dashboard</div>
       <p class="project-desc">Command-line productivity suite with AI-assisted code generation, scaffolding templates, and git workflow automation.</p>
       <div class="project-tags">
-        <span class="tag">Node.js</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">React</span>
         <span class="tag">JavaScript</span>
+        <span class="tag">Node.js</span>
         <span class="tag">API</span>
       </div>
       <div class="project-arrow">→</div>
@@ -990,6 +1097,8 @@
       <div class="project-title">Talk lucha Blog</div>
       <p class="project-desc">A content-focused blog experience with clean reading flow, strong typography, and a simple responsive layout.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">Tailwind</span>
         <span class="tag">React</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Blog</span>
@@ -1004,7 +1113,6 @@
       <div class="project-tags">
         <span class="tag">HTML</span>
         <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
@@ -1014,6 +1122,8 @@
       <div class="project-title">iGOSSIP</div>
       <p class="project-desc">A modern social-style web experience with playful visuals, smooth navigation, and responsive presentation.</p>
       <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">React</span>
         <span class="tag">JavaScript</span>
         <span class="tag">API</span>
@@ -1026,7 +1136,8 @@
       <div class="project-title">CandyCrush Web App</div>
       <p class="project-desc">A playful browser game experience with colorful visuals, quick interactions, and responsive gameplay.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Game</span>
       </div>
@@ -1043,7 +1154,8 @@
       <div class="project-title">QR Generator</div>
       <p class="project-desc">A compact utility app for quickly generating QR codes with a clean, simple interface.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Utility</span>
       </div>
@@ -1055,7 +1167,8 @@
       <div class="project-title">Weather</div>
       <p class="project-desc">A simple weather experience for checking current conditions and forecasts in a clean, responsive interface.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">API</span>
       </div>
@@ -1067,7 +1180,8 @@
       <div class="project-title">Temperature convertion</div>
       <p class="project-desc">A lightweight conversion tool for quickly switching between temperature units in a simple interface.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Utility</span>
       </div>
@@ -1079,7 +1193,8 @@
       <div class="project-title">Notes</div>
       <p class="project-desc">A focused notes app for capturing ideas, organizing thoughts, and keeping content easy to revisit.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Productivity</span>
       </div>
@@ -1090,7 +1205,8 @@
       <div class="project-title">Drag &amp; drop chess</div>
       <p class="project-desc">A chess experience with drag-and-drop interaction for moving pieces across the board.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Game</span>
       </div>
@@ -1102,7 +1218,8 @@
       <div class="project-title">digital clock</div>
       <p class="project-desc">A simple digital clock interface that displays the current time in a clean, focused layout.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Utility</span>
       </div>
@@ -1114,7 +1231,8 @@
       <div class="project-title">Quote Generator</div>
       <p class="project-desc">A quick quote generator for discovering and refreshing inspirational messages in a simple interface.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Utility</span>
       </div>
@@ -1126,7 +1244,8 @@
       <div class="project-title">Calculator</div>
       <p class="project-desc">A simple calculator for performing quick everyday arithmetic in a clean interface.</p>
       <div class="project-tags">
-        <span class="tag">React</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Utility</span>
       </div>
@@ -1141,70 +1260,78 @@
 <section class="experience-section" id="experience">
   <div class="section-label">Background</div>
   <h2 class="section-title fade-up">EDUCATION &<br />CERTIFICATIONS</h2>
+  <div class="exp-list-label">Education</div>
   <div class="exp-list">
 
     <div class="exp-item fade-up">
-      <div class="exp-year">2023 — Present</div>
+      <div class="exp-year">2023 — 2024</div>
       <div>
-        <div class="exp-title">AI-First Full-Stack Developer</div>
-        <div class="exp-org">Freelance / Independent</div>
-        <p class="exp-desc">Designing and shipping production-grade web applications that integrate modern AI capabilities. Focused on developer tooling, client dashboards, and intelligent automation.</p>
+        <div class="exp-title">Full-Stack Engineer Path</div>
+        <div class="exp-org"><a href="https://www.codecademy.com" target="_blank" rel="noopener">Codecademy.com ↗</a></div>
+        <p class="exp-desc">Completed the Full-Stack Engineer career path, covering web development foundations, front-end, back-end, and full-stack development: HTML, CSS, JavaScript, Git &amp; GitHub, React, Redux, Node.js, Express.js, SQL, PostgreSQL, web security, data structures, and algorithms.</p>
       </div>
-      <div class="exp-type">Full-Time</div>
     </div>
 
     <div class="exp-item fade-up">
-      <div class="exp-year">2022 — 2023</div>
+      <div class="exp-year">2024 — 2025</div>
       <div>
-        <div class="exp-title">Front-End Developer</div>
-        <div class="exp-org">Various Clients</div>
-        <p class="exp-desc">Built and launched responsive web interfaces across retail, SaaS, and media sectors. Delivered component libraries, CMS integrations, and performance audits.</p>
+        <div class="exp-title">Full-Stack Engineer Path &amp; AI Full-Stack Engineer Path</div>
+        <div class="exp-org"><a href="https://scrimba.com" target="_blank" rel="noopener">Scrimba.com ↗</a></div>
+        <p class="exp-desc">Completed The Fullstack Developer Path (108 hours, 1,924 lessons) and The AI Engineer Path (11 hours, 238 lessons), learning to build full-stack web apps and generative AI-powered applications.</p>
       </div>
-      <div class="exp-type">Contract</div>
     </div>
 
     <div class="exp-item fade-up">
-      <div class="exp-year">2020 — 2022</div>
+      <div class="exp-year">2026 — Present</div>
       <div>
-        <div class="exp-title">Back End Engineer</div>
-        <div class="exp-org">Boot.Dev</div>
-        <p class="exp-desc">Studied algorithms, data structures, and software engineering fundamentals while building side projects in web development and automation.</p>
+        <div class="exp-title">Back End Engineer Path</div>
+        <div class="exp-org"><a href="https://www.boot.dev" target="_blank" rel="noopener">Boot.Dev ↗</a></div>
+        <p class="exp-desc">Studying algorithms, data structures, and back-end engineering fundamentals while building side projects in web development and automation.</p>
       </div>
-      <div class="exp-type">Education</div>
     </div>
 
   </div>
-</section>
 
-<!-- ── About ── -->
-<section class="about-section" id="about">
-  <div class="section-label">About Me</div>
-  <div class="about-inner">
-    <div>
-      <h2 class="section-title fade-up" style="margin-bottom:2rem;">WHO I<br />AM</h2>
-      <p class="about-text fade-up">
-        I'm Abraham, a full-stack developer based in <strong>Victorville, CA</strong> — obsessively focused on the intersection of <strong>AI and great UX</strong>.<br /><br />
-        I believe the best software feels effortless. I care deeply about code quality, design craft, and building tools that <strong>genuinely help people</strong>. When I'm not coding, I'm exploring new AI models and figuring out what they make possible next.
-      </p>
-    </div>
-    <div class="about-stats fade-up">
-      <div class="stat-card">
-        <div class="stat-num">3+</div>
-        <div class="stat-label">Years of experience</div>
+  <div class="certs fade-up">
+    <div class="certs-label">Certificates</div>
+    <h3 class="cert-group-label"><a href="https://www.codecademy.com" target="_blank" rel="noopener">Codecademy ↗</a></h3>
+    <article class="cert-card">
+      <a href="./images/Certificates/codecademy-full-stack-engineer.jpg" class="cert-image" target="_blank" rel="noopener" aria-label="View the full Codecademy Full-Stack Engineer certificate">
+        <img src="./images/Certificates/codecademy-full-stack-engineer.jpg" alt="Codecademy Professional Certification awarded to Abraham Perez for completing Full-Stack Engineer, October 15, 2024" loading="lazy" />
+      </a>
+      <div class="cert-body">
+        <div class="cert-org">Codecademy · Professional Certification</div>
+        <h3 class="cert-title">Full-Stack Engineer</h3>
+        <div class="cert-date">Issued October 15, 2024 · ID 670EDDC72B</div>
+        <p class="cert-desc">Awarded for passing all five exams: Web Development Foundations, Building Interactive Websites, Front-End Development, Back-End Development, and Full-Stack Development.</p>
+        <a href="https://www.codecademy.com/profiles/Abe_of_Spade/certificates/ffd0f42cce1a44e9a0108b365047a0a6" class="cert-verify" target="_blank" rel="noopener">Verify certificate ↗</a>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">20+</div>
-        <div class="stat-label">Projects shipped</div>
+    </article>
+    <h3 class="cert-group-label"><a href="https://scrimba.com" target="_blank" rel="noopener">Scrimba ↗</a></h3>
+    <article class="cert-card">
+      <a href="./images/Certificates/scrimba-fullstack-developer.jpg" class="cert-image" target="_blank" rel="noopener" aria-label="View the full Scrimba Fullstack Developer Path certificate">
+        <img src="./images/Certificates/scrimba-fullstack-developer.jpg" alt="Scrimba Certificate of Completion awarded to Abraham Perez for The Fullstack Developer Path, October 14, 2025" loading="lazy" />
+      </a>
+      <div class="cert-body">
+        <div class="cert-org">Scrimba · Certificate of Completion</div>
+        <h3 class="cert-title">The Fullstack Developer Path</h3>
+        <div class="cert-date">Completed October 14, 2025 · 108.4 hours · 1,924 lessons</div>
+        <p class="cert-desc">Full-stack web development from front-end fundamentals through back-end services, databases, and deployment.</p>
+        <a href="https://scrimba.com/fullstack-path-c0fullstack;cert2ffemzs7qTt1x3eApXPDVM4owtBGnsRwtiQf5hrsgipnuN" class="cert-verify" target="_blank" rel="noopener">Verify certificate ↗</a>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">AI</div>
-        <div class="stat-label">First approach</div>
+    </article>
+    <article class="cert-card">
+      <a href="./images/Certificates/scrimba-ai-engineer.jpg" class="cert-image" target="_blank" rel="noopener" aria-label="View the full Scrimba AI Engineer Path certificate">
+        <img src="./images/Certificates/scrimba-ai-engineer.jpg" alt="Scrimba Certificate of Completion awarded to Abraham Perez for The AI Engineer Path, October 14, 2025" loading="lazy" />
+      </a>
+      <div class="cert-body">
+        <div class="cert-org">Scrimba · Certificate of Completion</div>
+        <h3 class="cert-title">The AI Engineer Path</h3>
+        <div class="cert-date">Completed October 14, 2025 · 11.4 hours · 238 lessons</div>
+        <p class="cert-desc">Building generative AI-powered web apps with modern AI APIs.</p>
+        <a href="https://scrimba.com/the-ai-engineer-path-c02v;cert24zAwJ78oNMaBkzVnB7VFcKPgdimZgyHwDSKC" class="cert-verify" target="_blank" rel="noopener">Verify certificate ↗</a>
       </div>
-      <div class="stat-card">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Remote ready</div>
-      </div>
-    </div>
+    </article>
   </div>
 </section>
 
@@ -1229,6 +1356,14 @@
         <a href="https://www.linkedin.com/in/abraham-perez-aa7a3b9b/" target="_blank" rel="noopener" class="contact-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
+        </a>
+        <a href="https://www.instagram.com/abe_el_dev/" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&amp;list=RDdQw4w9WgXcQ&amp;start_radio=1" target="_blank" rel="noopener" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+          YouTube
         </a>
       </div>
     </div>
