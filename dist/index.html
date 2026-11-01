@@ -289,6 +289,42 @@
 
   /* ── Projects ── */
   .projects-section { border-top: 1px solid var(--border); }
+  .client-logos {
+    display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .client-logos-label {
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .client-logos-list { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; }
+  .client-logo {
+    display: flex; align-items: center; justify-content: center;
+    min-width: 12rem; height: 5.5rem;
+    padding: 1rem 1.75rem;
+    border: 1px solid var(--border2); border-radius: 0.85rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+  .client-logo:hover { border-color: var(--tag-border); background: var(--tag-bg); transform: translateY(-2px); }
+  /* Client logos ship on white backgrounds, so boxes holding an image become white cards. */
+  .client-logo:has(img) { background: #fff; border-color: rgba(255,255,255,0.6); padding: 0.5rem 1.25rem; }
+  .client-logo:has(img):hover { background: #fff; border-color: var(--accent); box-shadow: 0 8px 28px -10px rgba(91,149,255,0.7); }
+  .client-logo img {
+    max-width: 10rem; max-height: 100%; object-fit: contain;
+  }
+  .client-logo img ~ .client-logo-name { display: none; }
+  .client-logo-name {
+    display: flex; flex-direction: column; align-items: center;
+    font-family: var(--font-display); font-size: 1.6rem; line-height: 1;
+    letter-spacing: 0.06em; color: var(--text);
+  }
+  .client-logo-name small {
+    margin-top: 0.3rem;
+    font-family: var(--font-mono); font-size: 0.58rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+  }
   .projects-grid { display: flex; flex-direction: column; gap: 0; margin: 0; border-top: 1px solid var(--border); }
   .project-card {
     padding: 2.5rem;
@@ -642,6 +678,10 @@
     .project-card.fade-up.project-card--from-right { transform: translateY(24px); }
     .project-preview { min-height: 0; aspect-ratio: 16 / 10; }
     .project-title { font-size: 1.7rem; }
+    .client-logos { flex-direction: column; align-items: stretch; gap: 1rem; margin-bottom: 2rem; }
+    .client-logos-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: 0.75rem; }
+    .client-logo { min-width: 0; height: 4.5rem; padding: 0.75rem 1rem; }
+    .client-logo-name { font-size: 1.3rem; }
     .project-arrow { width: 2.2rem; height: 2.2rem; }
   }
 
@@ -697,7 +737,7 @@
     }
   }
 </style>
-  <script type="module" crossorigin src="/assets/index-GqgqrhYV.js"></script>
+  <script type="module" crossorigin src="/assets/index-ZOCoCv83.js"></script>
 </head>
 <body>
 
@@ -791,10 +831,34 @@
 <section class="projects-section" id="clients-projects">
   <div class="section-label">Selected Work</div>
   <h2 class="section-title fade-up">CLIENTS PROJECTS</h2>
+  <!-- Drop logo files into images/Clients/ — the company name shows until the image exists. -->
+  <div class="client-logos fade-up">
+    <div class="client-logos-label">Trusted by</div>
+    <ul class="client-logos-list">
+      <li>
+        <a href="https://vsdestates.netlify.app/" class="client-logo" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/vsd-estates-B-Se7kLL.jpg" alt="VSD Estates logo" loading="lazy" onerror="this.remove()" />
+          <span class="client-logo-name">VSD<small>Estates</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://vsd-estates.netlify.app" class="client-logo" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/corner-stone-realty-D_z4iqRq.png" alt="Corner Stone Realty Solutions logo" loading="lazy" onerror="this.remove()" />
+          <span class="client-logo-name">Corner Stone<small>Realty Solutions</small></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://craftsjunkiee.netlify.app" class="client-logo" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/crafts-junkiee-DC2XGR_M.jpg" alt="Crafts Junkiee logo" loading="lazy" onerror="this.remove()" />
+          <span class="client-logo-name">Crafts<small>Junkiee</small></span>
+        </a>
+      </li>
+    </ul>
+  </div>
   <div class="projects-grid">
 
     <a href="https://vsd-estates.netlify.app" class="project-card fade-up">
-      <div class="project-num">01 / 02</div>
+      <div class="project-num">01 / 03</div>
       <div class="project-title">Corner Stone Realty Solutions</div>
       <p class="project-desc">Real-time analytics dashboard for e-commerce operators with AI-generated insights and automated reporting.</p>
       <div class="project-tags">
@@ -807,7 +871,7 @@
     </a>
 
     <a href="https://vsdestates.netlify.app/" class="project-card fade-up">
-      <div class="project-num">02 / 02</div>
+      <div class="project-num">02 / 03</div>
       <div class="project-title">VSD Estates</div>
       <p class="project-desc">Real-time analytics dashboard for modern real estate workflows with AI-generated insights and automated reporting.</p>
       <div class="project-tags">
@@ -815,6 +879,18 @@
         <span class="tag">Tailwind</span>
         <span class="tag">Recharts</span>
         <span class="tag">OpenAI API</span>
+      </div>
+      <div class="project-arrow">→</div>
+    </a>
+
+    <a href="https://craftsjunkiee.netlify.app" class="project-card fade-up">
+      <div class="project-num">03 / 03</div>
+      <div class="project-title">Crafts Junkiee</div>
+      <p class="project-desc">Storefront for a handmade crafts shop, showcasing products with a clean, mobile-friendly layout.</p>
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
       </div>
       <div class="project-arrow">→</div>
     </a>
